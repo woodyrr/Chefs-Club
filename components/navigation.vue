@@ -1,5 +1,5 @@
-<script setup lang="ts">
-  import { Bell, CircleUser, Coins, CreditCard, DollarSign, HistoryIcon, Home, LineChart, Menu, Package, Package2, PersonStanding,  ShoppingCart, Users, Drumstick, Star} from 'lucide-vue-next'
+<script setup>
+  import { Bell, CircleUser, Coins, CreditCard, DollarSign, HistoryIcon, Home, LineChart, Menu, Package, Package2, PersonStanding,  ShoppingCart, Users, Drumstick, Star, Search} from 'lucide-vue-next'
   
   import { Badge } from '@/components/ui/badge'
   import { Button } from './ui/button'
@@ -9,7 +9,7 @@
   import { Input } from '@/components/ui/input'
   import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 //   import { account } from '~/appwriteUsers';
-//   const user = useUserSession();
+  const user = useUserSession();
 const router = useRouter();
 const loggedInUser = ref(null);
 
@@ -204,14 +204,14 @@ const loggedInUser = ref(null);
             <DropdownMenuItem>Settings</DropdownMenuItem>
             <DropdownMenuItem>Support</DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem @click="">Logout</DropdownMenuItem>
+            <DropdownMenuItem @click="user.logout()">Logout</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </header>
 
-      <span class="w-full">
+      <div class="w-full">
         <slot />
-      </span>
+      </div>
       
     </div>
   </div>

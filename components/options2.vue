@@ -13,9 +13,11 @@
               </div>
             </div>
         </div>
-
+        
         <FindLocalChef />
         <!-- <ItemsCarousel /> -->
     </div>
 </template>
-<script setup></script>
+<script setup>
+const user = useUserSession()
+</script>
