@@ -21,7 +21,7 @@ import {
         Open
       </Button>
     </SheetTrigger>
-    <SheetContent>
+    <SheetContent claa="w-full">
       <SheetHeader>
         <SheetTitle>Edit profile</SheetTitle>
         <SheetDescription>
