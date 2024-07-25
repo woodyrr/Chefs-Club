@@ -36,7 +36,7 @@ const plugin = Autoplay({
     class="relative w-full max-w-sm lg:max-w-lg xl:max-w-2xl"
     :plugins="[plugin]"
      @mouseenter="plugin.stop"
-     @mouseleave="[plugin.reset(), plugin.play(), console.log('Running')];"
+     @mouseleave="[plugin.reset(), plugin.play()];"
     :opts="{
       align: 'start',
     }"

@@ -8,9 +8,11 @@
   import PresetShare from '@/components/PresetShare.vue'
   import { Input } from '@/components/ui/input'
   import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
+  import createProfile from './User/createProfile/createProfile.vue'
 //   import { account } from '~/appwriteUsers';
   const user = useUserSession();
-const router = useRouter();
+// const router = useRouter();
+const profile = useProfiles()
 const loggedInUser = ref(null);
 
 //   const logout = async () => {
@@ -177,7 +179,7 @@ const loggedInUser = ref(null);
         </Sheet>
 
         
-        <div class="w-full flex-1  ">
+        <div class="hidden md:block w-full flex-1  ">
           <form>
             <div class="relative">
               <Search class="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
@@ -190,8 +192,9 @@ const loggedInUser = ref(null);
           </form>
           
         </div>
-
-        <DropdownMenu>
+        
+        <p v-if="profile.current.value[0].firstName">Welcome {{ profile.current.value[0].firstName }}</p>
+        <DropdownMenu v-if="profile.current.value[0].lastName">
           <DropdownMenuTrigger as-child>
             <Button variant="secondary" size="icon" class="rounded-full ">
               <CircleUser class="h-5 w-5 text-blue-500" />
@@ -207,6 +210,9 @@ const loggedInUser = ref(null);
             <DropdownMenuItem @click="user.logout()">Logout</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+        <div v-else>
+          <createProfile />
+        </div>
       </header>
 
       <div class="w-full">

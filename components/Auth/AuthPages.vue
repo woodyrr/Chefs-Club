@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 // import { account} from '~/appwrite';
 const user = useUserSession();
-
+const profile = useProfiles()
 // User states
 const isSignUp = ref(false);
 const email = ref('');
@@ -28,6 +28,12 @@ const handleLogin = async (event) => {
 // Register user
 const handleRegistration = async (event) => {
   await user.register( email.value, password.value);
+  const postIdeaData = {
+    userId: user.current.value?.userId,
+    email: user.current.value?.providerUid,
+  };
+
+  await profile.add(postIdeaData);
   email.value = '',
   password.value = ''
 
@@ -38,6 +44,18 @@ const handleRegistration = async (event) => {
 
 let log = ref(true)
 let sign = ref(false)
+
+
+
+
+// const handleAddIdea = async () => {
+// const postIdeaData = {
+//     userId: user.current.value?.userId,
+//     email: user.current.value?.providerUid,
+//   };
+
+//   await profile.add(postIdeaData);
+// }
 </script>
 
 

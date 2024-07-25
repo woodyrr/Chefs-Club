@@ -2,8 +2,8 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 import { Card, CardContent } from '@/components/ui/card'
 import birthDate from '@/components/User/formItems/birthDate.vue';
-import Username from '@/components/User/formItems/username.vue';
-const formsItems = [Username, birthDate] 
+// import Username from '@/components/User/formItems/username.vue';
+// const formsItems = [Username, birthDate] 
 </script>
 
 <template>

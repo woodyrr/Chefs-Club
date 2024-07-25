@@ -34,6 +34,7 @@ const placeholder = ref()
 
 const { handleSubmit, setFieldValue, values } = useForm({
   validationSchema: formSchema,
+  initialValues: {},
 })
 
 const value = computed({
@@ -44,13 +45,16 @@ const value = computed({
 const onSubmit = handleSubmit((values) => {
   toast({
     title: 'You submitted the following values:',
-    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-red-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
+    description: h('pre', { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' }, h('code', { class: 'text-white' }, JSON.stringify(values, null, 2))),
   })
 })
+
+defineExpose({ onSubmit, values, setFieldValue })
+
 </script>
 
 <template>
-  <form class="space-y-8 " @submit="onSubmit">
+  <form class="space-y-8">
     <FormField name="dob">
       <FormItem class="flex flex-col">
         <FormLabel>Date of birth</FormLabel>
@@ -84,6 +88,7 @@ const onSubmit = handleSubmit((values) => {
                 else {
                   setFieldValue('dob', undefined)
                 }
+
               }"
             />
           </PopoverContent>
@@ -94,8 +99,6 @@ const onSubmit = handleSubmit((values) => {
         <FormMessage />
       </FormItem>
     </FormField>
-    <Button type="submit">
-      Submit
-    </Button>
-  </Form>
+  </form>
 </template>
+

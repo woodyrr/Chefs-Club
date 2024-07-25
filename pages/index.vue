@@ -8,12 +8,12 @@
     </div> -->
 
 
-    <!-- <div v-if="user.current.value">
+    <div v-if="user.current.value">
         <navigation class=" w-full">
             <dashboard />
         </navigation>
-    </div> -->
-    <div v-if="user.current.value">
+    </div>
+    <!-- <div v-if="user.current.value">
         <UserSignupform />
         <userName />
         <div class="flex">
@@ -21,7 +21,7 @@
             <formCarousel />
         </div>
         
-    </div>
+    </div> -->
     <div v-else>
         <AuthPages />
     </div>
@@ -30,7 +30,7 @@
 <script setup>
 import Navigation from '~/components/navigation.vue';
 import options from '~/components/options.vue';
-import userName from '~/components/User/formItems/username.vue';
+// import userName from '~/components/User/formItems/username.vue';
 import birthDate from '~/components/User/formItems/birthDate.vue';
 import formCarousel from '~/components/User/formItems/formCarousel.vue';
 

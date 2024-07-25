@@ -8,7 +8,7 @@ import { toast } from '@/components/ui/toast'
 import { AutoForm } from '@/components/ui/auto-form'
 
 const schema = z.object({
-  username: z.string(),
+  fullName: z.string(),
   bio: z
     .string()
     .min(10, {
