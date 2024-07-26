@@ -8,11 +8,27 @@
     </div> -->
 
 
-    <div v-if="user.current.value">
+    <!-- <div v-if="user.current.value">
         <navigation class=" w-full">
             <dashboard />
         </navigation>
+    </div> -->
+    <div v-if="user.current.value" >
+        <!-- <div v-for="items in profile.current.value">
+            <div v-if="items.userId == user.current.value.userId"> -->
+                <navigation class=" w-full">
+                    <dashboard />
+                </navigation>
+            <!-- </div> -->
+            <!-- <div v-else>
+                <AuthPages />
+            </div> -->
+        <!-- </div> -->
     </div>
+    <div v-else>
+        <AuthPages />
+    </div>
+    
     <!-- <div v-if="user.current.value">
         <UserSignupform />
         <userName />
@@ -20,11 +36,17 @@
             <birthDate />
             <formCarousel />
         </div>
-        
+        <div v-for="items in profile.current.value">
+            <div v-if="items.userId == user.current.value.userId">
+                <div v-if="items.firstName">
+                  Welcome {{ items.firstName }}
+                </div>
+            </div>
+        </div>
     </div> -->
-    <div v-else>
+    <!-- <div v-else>
         <AuthPages />
-    </div>
+    </div> -->
 </template>
 
 <script setup>
@@ -35,6 +57,7 @@ import birthDate from '~/components/User/formItems/birthDate.vue';
 import formCarousel from '~/components/User/formItems/formCarousel.vue';
 
 const user = useUserSession()
+const profile = useProfiles()
 // const router = useRouter()
 
 </script>

@@ -1,26 +1,31 @@
 <script setup>
-  import { Bell, CircleUser, Coins, CreditCard, DollarSign, HistoryIcon, Home, LineChart, Menu, Package, Package2, PersonStanding,  ShoppingCart, Users, Drumstick, Star, Search} from 'lucide-vue-next'
-  
-  import { Badge } from '@/components/ui/badge'
-  import { Button } from './ui/button'
-  import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-  import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
-  import PresetShare from '@/components/PresetShare.vue'
-  import { Input } from '@/components/ui/input'
-  import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-  import createProfile from './User/createProfile/createProfile.vue'
-//   import { account } from '~/appwriteUsers';
-  const user = useUserSession();
-// const router = useRouter();
-const profile = useProfiles()
+import { ref, onMounted, computed } from 'vue';
+import { Bell, CircleUser, Home, Menu, Search, Drumstick, Star,  DollarSign, HistoryIcon } from 'lucide-vue-next';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { Input } from '@/components/ui/input';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import createProfile from './User/createProfile/createProfile.vue';
+import { useUserSession } from '@/composables/useUserSession';
+import { updateProfiles } from '@/composables/updateProfiles';
+import { useProfiles } from '@/composables/useProfiles';
+
+const user = useUserSession();
+const profile = useProfiles();
+const update = updateProfiles();
 const loggedInUser = ref(null);
 
-//   const logout = async () => {
-//   await account.deleteSession('current');
-//   loggedInUser.value = null;
-//   // router.push("/signin");
-// };
-  // import History from '~/pages/history.vue'
+
+onMounted(async () => {
+  await update.fetch();
+});
+
+const userProfile = computed(() => {
+  return update.recent.value?.find(profile => profile.userId === user.current.value?.userId);
+});
+
 </script>
 
 <template>
@@ -144,20 +149,6 @@ const loggedInUser = ref(null);
                 <HistoryIcon class="h-4 w-4" />
                 Favorites
               </a>
-              <!-- <a
-                href="#"
-                class="flex items-center gap-3 rounded-lg px-3 py-3 text-muted-foreground transition-all hover:text-primary"
-              >
-                <CreditCard class="h-4 w-4" />
-              Connect Bank
-              </a>
-              <a
-                href="#"
-                class="flex items-center gap-3 rounded-lg px-3 py-3 text-muted-foreground transition-all hover:text-primary"
-              >
-                <LineChart class="h-4 w-4" />
-                Gamble
-              </a> -->
             </nav>
 
             <div class="mt-auto">
@@ -177,8 +168,6 @@ const loggedInUser = ref(null);
             </div>
           </SheetContent>
         </Sheet>
-
-        
         <div class="hidden md:block w-full flex-1  ">
           <form>
             <div class="relative">
@@ -190,31 +179,35 @@ const loggedInUser = ref(null);
               />
             </div>
           </form>
-          
         </div>
         
-        <p v-if="profile.current.value[0].firstName">Welcome {{ profile.current.value[0].firstName }}</p>
-        <DropdownMenu v-if="profile.current.value[0].lastName">
-          <DropdownMenuTrigger as-child>
-            <Button variant="secondary" size="icon" class="rounded-full ">
-              <CircleUser class="h-5 w-5 text-blue-500" />
-              <span class="sr-only">Toggle user menu</span>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent >
-            <DropdownMenuLabel>My Account</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Settings</DropdownMenuItem>
-            <DropdownMenuItem>Support</DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem @click="user.logout()">Logout</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-        <div v-else>
+        <div v-if="!userProfile">
           <createProfile />
         </div>
+        <div v-else class="flex items-center">
+          <div v-for="item in update.recent.value" :key="item.$id">
+            <div v-if="item.userId === user.current.value.userId">
+              Hey {{ item.firstName }}
+            </div>
+          </div>
+          <DropdownMenu>
+            <DropdownMenuTrigger as-child>
+              <Button variant="secondary" size="icon" class="rounded-full">
+                <CircleUser class="h-5 w-5 text-blue-500" />
+                <span class="sr-only">Toggle user menu</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Settings</DropdownMenuItem>
+              <DropdownMenuItem>Support</DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem @click="user.logout()">Logout</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </header>
-
       <div class="w-full">
         <slot />
       </div>

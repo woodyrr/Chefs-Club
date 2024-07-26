@@ -16,22 +16,23 @@ import { Label } from '@/components/ui/label';
 import birthDate from '../formItems/birthDate.vue';
 import { useProfiles } from '@/composables/useProfiles';
 import { useUserSession } from '@/composables/useUserSession';
-import { errorMessages } from 'vue/compiler-sfc';
 
 const profile = useProfiles();
+const update = updateProfiles()
 const user = useUserSession();
 
 const firstName = ref('');
 const lastName = ref('');
 const birthDateRef = ref(null);
+const isDialogOpen = ref(false);
 
 const handleAddToProfile = async () => {
   // Collect data from birthDate component
   const birthDateValues = birthDateRef.value.values;
-  if(firstName.value == '' || lastName.value == '' || birthDateRef.value == null){
-    console.log(errorMessages, "first name or last name isnt entered./ birthdate")
-  }
-  else{
+  if (firstName.value === '' || lastName.value === '' || !birthDateValues) {
+    console.log("First name, last name, or birthdate is missing.");
+    return;
+  } else {
     const postIdeaData = {
       userId: user.current.value?.userId,
       email: user.current.value?.providerUid,
@@ -41,35 +42,39 @@ const handleAddToProfile = async () => {
     };
 
     await profile.addUpdatedProfile(postIdeaData);
+
+    // Optionally reset form fields
+    firstName.value = '';
+    lastName.value = '';
+    birthDateRef.value.setFieldValue('dob', null);
+
+    // Close the dialog
+    isDialogOpen.value = false;
   }
-  // Optionally reset form fields
-  firstName.value = '';
-  lastName.value = '';
-  birthDateRef.value.setFieldValue('dob', null);
 }
 
 const handleSubmit = async () => {
   // Trigger birthDate onSubmit to validate
-  if(birthDateRef.value == null){
-    console.log("birthday is not entered")
-    return error.error;
-  }
-  else{
+  if (!birthDateRef.value) {
+    console.log("Birthday is not entered");
+    return;
+  } else {
     await birthDateRef.value.onSubmit();
     // Add to profile if valid
     await handleAddToProfile();
+    await update.fetch()
   }
 }
 </script>
 
 <template>
-  <Dialog>
+  <Dialog >
     <DialogTrigger as-child>
-      <Button variant="outline">
+      <Button variant="outline" @click="isDialogOpen = true">
         Edit Profile
       </Button>
     </DialogTrigger>
-    <DialogContent class="sm:max-w-[525px] flex flex-col justify-center items-center">
+    <DialogContent v-model="isDialogOpen" class="sm:max-w-[525px] flex flex-col justify-center items-center">
       <DialogHeader>
         <DialogTitle>Edit profile</DialogTitle>
         <DialogDescription>
@@ -99,7 +104,7 @@ const handleSubmit = async () => {
             <birthDate ref="birthDateRef" />
             <div>2/3</div>
           </CarouselItem>
-          <CarouselItem class="w-full flex justify-center flex-col items-center">... <div>3/3</div></CarouselItem>
+          <!-- <CarouselItem class="w-full flex justify-center flex-col items-center">... <div>3/3</div></CarouselItem> -->
         </CarouselContent>
         <CarouselPrevious />
         <CarouselNext />
@@ -112,4 +117,5 @@ const handleSubmit = async () => {
     </DialogContent>
   </Dialog>
 </template>
+
 
