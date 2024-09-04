@@ -8,7 +8,7 @@ const updatedProfilesCollectionId = import.meta.env.VITE_APPWRITE_UPDATED_PROFIL
 const queryLimit = 10;
 
 const current = ref(null); // Reference for the fetched data
-
+// node_modules/@rollup/plugin-inject/dist/es/index.js:74:74
 export const useProfiles = () => {
 
     // Fetch the 10 most recent ideas from the database
