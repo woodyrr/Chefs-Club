@@ -86,6 +86,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Card, CardContent } from '@/components/ui/card'
 import { ref, onMounted } from 'vue';
 import { Sheet, SheetContent, SheetHeader, SheetTrigger, SheetTitle, SheetDescription } from './ui/sheet';
+import { ArrowRight } from 'lucide-vue-next';
 
 const plugin = Autoplay({
   delay: 4000,
@@ -148,14 +149,25 @@ onMounted(async () => {
                 </CardContent>
               </SheetTrigger>
 
-              <SheetContent>
-                <SheetHeader>
-                  <SheetTitle>{{ item.strCategory }}</SheetTitle>
-                  <SheetDescription>
-                    {{ item.strCategoryDescription }}
+              <SheetContent class="h-full">
+                <SheetHeader class="w-full h-full flex flex-col gap-2">
+                  <SheetTitle class="xl:text-xl">{{ item.strCategory }}</SheetTitle>
+                  <SheetDescription class="flex-col gap-10 md:text-[15px] 2xl:text-[16px]">
+                    
+                    <div class="instruct whitespace-pre-line  ">
+                      {{ item.strCategoryDescription }}
+                    </div>
+
+                    
                   </SheetDescription>
+                  <NuxtLink :to="{ name: 'category-id', params: { id: item.strCategory} }" class="bg-green-100 border border-green-200 p-3 rounded-lg text-center flex  justify-between font-semibold items-end">
+                      Go to {{ item.strCategory }} dishes <ArrowRight class="animate-pulse" />
+                  </NuxtLink>
                 </SheetHeader>
               </SheetContent>
+              <SheetFooter>
+
+              </SheetFooter>
             </Sheet>
           </Card>
         </div>
