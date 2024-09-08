@@ -81,11 +81,11 @@ const filteredIngredients = () => {
       <!-- <img :src="food.strMealThumb" alt="Meal image" /> -->
       <h2 class="text-[26px] md:text-[45px] detailhead">{{ food.strMeal }}</h2>
        <div class="flex gap-3">
-            <router-link to="" class="flex bg-green-100 items-center md:px-4 px-2 py-1 rounded-full gap-1">
+            <router-link :to="{ name: 'category-id', params: { id: food.strCategory } }" class="flex bg-green-100 items-center md:px-4 px-2 py-1 rounded-full gap-1">
                 <div>category:</div>
                 <div class="font-bold"> {{ food.strCategory }}</div>
             </router-link>
-            <router-link to=""  class="flex bg-green-100 items-center md:px-4 px-2 py-1 rounded-full gap-1">
+            <router-link :to="{ name: 'nationality-id', params: { id: food.strArea } }"  class="flex bg-green-100 items-center md:px-4 px-2 py-1 rounded-full gap-1">
                 <div>Area:</div>
                 <div class="font-bold">{{ food.strArea }}</div>
             </router-link>

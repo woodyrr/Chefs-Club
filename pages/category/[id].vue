@@ -87,20 +87,75 @@ onBeforeMount(() => {
 </template> -->
 
 <template>
-    <section class="grid md:grid-cols-3 xl:grid-cols-5 gap-8 text-[16px] text-[#E5E7EB] font-medium">
-    <Dialog v-for="(item, index) in food" :key="index">
-      <DialogTrigger as-child class="border">
-        <Button variant="outline" :style="{ backgroundImage: `url(${item.strMealThumb})`, backgroundSize: 'cover', backgroundPosition: 'center' }" class="w-full sm:h-[450px] 2xl:h-[100px] rounded-lg flex items-center justify-center">
-            <div class="bg-black bg-opacity-50 text-white p-2 rounded">
-                {{ item.strMeal }}
-            </div>
-        </Button>
-      </DialogTrigger>
-      <DialogContent class="max-w-[99%] sm:max-w-[80%] md:max-w-[75%] xl:max-w-[70%] h-[98%] sm:h-[97%] xl:h-[94%] ">
-        <FoodDetails :meal="item"/>
-      </DialogContent>
-    </Dialog>
-</section>
+    <!-- <section class="grid md:grid-cols-3 xl:grid-cols-5 gap-8 text-[16px] text-[#E5E7EB] font-medium">
+        <Dialog v-for="(item, index) in food" :key="index">
+        <DialogTrigger as-child class="border">
+            <Button variant="outline" :style="{ backgroundImage: `url(${item.strMealThumb})`, backgroundSize: 'cover', backgroundPosition: 'center' }" class="w-full sm:h-[450px] 2xl:h-[100px] rounded-lg flex items-center justify-center">
+                <div class="bg-black bg-opacity-50 text-white p-2 rounded">
+                    {{ item.strMeal }}
+                </div>
+            </Button>
+        </DialogTrigger>
+        <DialogContent class="max-w-[99%] sm:max-w-[80%] md:max-w-[75%] xl:max-w-[70%] h-[98%] sm:h-[97%] xl:h-[94%] ">
+            <FoodDetails :meal="item"/>
+        </DialogContent>
+        </Dialog>
+    </section> -->
+
+    <!-- <section class="grid md:grid-cols-3 xl:grid-cols-5 gap-8 text-[16px] text-[#E5E7EB] font-medium p-[1%]">
+        
+        <Dialog v-for="(item, index) in food" :key="index">
+            <DialogTrigger as-child class="border">
+            <Button
+                variant="outline"
+                :style="{ backgroundImage: `url(${item.strMealThumb})`, backgroundSize: 'cover', backgroundPosition: 'center' }"
+                class="w-full sm:h-[450px] 2xl:h-[500px] rounded-lg flex items-center justify-center transform hover:scale-105 transition-transform duration-300 shadow-lg relative"
+            >
+                <div class="absolute inset-0 bg-black bg-opacity-50 rounded-lg flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                <span class="text-white text-lg font-bold p-4">
+                    {{ item.strMeal }}
+                </span>
+                </div>
+            </Button>
+            </DialogTrigger>
+            
+                <DialogContent class="max-w-[99%] sm:max-w-[80%] md:max-w-[75%] xl:max-w-[70%] h-[98%] sm:h-[97%] xl:h-[94%] transition-all duration-300 transform origin-bottom sm:origin-center">
+                    <FoodDetails :meal="item" />
+                </DialogContent>
+            
+            
+        </Dialog>
+    </section> -->
+
+    <section class="grid md:grid-cols-3 xl:grid-cols-5 gap-8 text-[16px] text-[#E5E7EB] font-medium p-[1%]">
+        <!-- Dialog-Style Display -->
+        <Dialog v-for="(item, index) in food" :key="index">
+            <DialogTrigger as-child class="border">
+            <!-- Button with Background Image and Hover Effects -->
+            <Button
+                variant="outline"
+                :style="{ backgroundImage: `url(${item.strMealThumb})`, backgroundSize: 'cover', backgroundPosition: 'center' }"
+                class="w-full sm:h-[450px] 2xl:h-[500px] rounded-lg flex items-center justify-center transform hover:scale-105 transition-transform duration-300 shadow-lg relative"
+            >
+                <!-- Dark Overlay with Text on Hover -->
+                <div class="absolute inset-0 bg-black bg-opacity-50 rounded-lg flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                <span class="text-white text-lg font-bold p-4">
+                    {{ item.strMeal }}
+                </span>
+                </div>
+            </Button>
+            </DialogTrigger>
+
+            <!-- Dialog Content with Transition -->
+            <DialogContent class="max-w-[99%] sm:max-w-[80%] md:max-w-[75%] xl:max-w-[70%] h-[98%] sm:h-[97%] xl:h-[94%] transition-all duration-300 transform origin-bottom sm:origin-center">
+            <!-- Meal Details Component -->
+            <FoodDetails :meal="item" />
+            </DialogContent>
+        </Dialog>
+    </section>
+
+
+
   </template>
 
 <style scoped>
@@ -111,6 +166,12 @@ img{
 }
 .detailhead{
   font-family: 'Playfair Display', serif;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+  opacity: 0;
 }
 /* .instruct{
     white-space: pre;
