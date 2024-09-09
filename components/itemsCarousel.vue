@@ -194,7 +194,7 @@ onMounted(async () => {
       <CarouselItem
         v-for="(item, index) in foodlist.categories"
         :key="index"
-        class="pl-1 basis-1/2 lg:basis-1/5 2xl:basis-1/5"
+        class="pl-1 basis-1/2 md:basis-1/3 lg:basis-1/4 2xl:basis-1/5"
       >
         <div class="p-1 transition-transform transform hover:scale-105 hover:rotate-2 duration-500">
           <Card class="overflow-hidden rounded-lg shadow-sm transition-transform">
@@ -261,6 +261,11 @@ onMounted(async () => {
 
 .animate-slide-in-left {
   animation: slide-in-left 0.5s ease-out forwards;
+}
+img{
+    image-rendering: -webkit-optimize-contrast;
+    object-fit: cover;
+    
 }
 </style>
 

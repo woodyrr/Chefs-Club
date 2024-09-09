@@ -6,7 +6,7 @@
             <NavigationMenu />
          <!-- </div> -->
        
-         <div class="w-full">
+         <div class="hidden md:block w-full">
             <div class="relative">
                <div class="flex gap-1 items-center ">
                 <PresetShare />
@@ -14,7 +14,7 @@
             </div>
         </div>
         
-        <FindLocalChef />
+        <FindLocalChef class="hidden md:block" />
         <!-- <ItemsCarousel /> -->
     </div>
 </template>

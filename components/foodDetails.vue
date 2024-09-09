@@ -33,21 +33,6 @@ watch(
   { immediate: true } // This ensures it runs immediately if `props.meal` is already available
 );
 
-// const filteredIngredients = () => {
-//   const ingredients = [];
-//   if (food.value.meals && food.value.meals.length > 0) {
-//     const meal = food.value.meals[0]; // Access the first meal in the meals array
-//     for (let i = 1; i <= 20; i++) {
-//       const ingredient = meal[`strIngredient${i}`];
-//       const measure = meal[`strMeasure${i}`];
-//       if (ingredient && ingredient.trim() && measure && measure.trim()) {
-//         ingredients.push(`${measure} ${ingredient}`);
-//       }
-//     }
-//   }
-//   return ingredients;
-// };
-
 const filteredIngredients = () => {
   const ingredients = [];
   if (food.value.meals && food.value.meals.length > 0) {
@@ -71,14 +56,11 @@ const filteredIngredients = () => {
   }
   return ingredients;
 };
-
 </script>
 
 <template>
     
     <div v-if="food.meals && food.meals.length > 0" v-for=" food in food.meals" class="flex flex-col gap-5 justify-center items-center">
-      <!-- <h2>{{ food.strMeal }}</h2> -->
-      <!-- <img :src="food.strMealThumb" alt="Meal image" /> -->
       <h2 class="text-[26px] md:text-[45px] detailhead">{{ food.strMeal }}</h2>
        <div class="flex gap-3">
             <router-link :to="{ name: 'category-id', params: { id: food.strCategory } }" class="flex bg-green-100 items-center md:px-4 px-2 py-1 rounded-full gap-1">
@@ -115,7 +97,7 @@ const filteredIngredients = () => {
                     <div class="flex gap-2 ">
                         <div class="flex font-semibold" >
                             {{ ingredient.quantity }}
-                            {{ ingredient.unit }}
+                            {{ ingredient.type }}
                         </div>
                         <div>
                             {{ ingredient.ingredient }}
@@ -127,19 +109,8 @@ const filteredIngredients = () => {
             </div>
         </div>
     
-        <!-- <div class="Instructions flex flex-col gap-5 px-2 md:px-0 pb-14">
-            <div class="flex gap-4">
-                <button class="bg-[#4E80EE] p-3 py-5 rounded-full"></button>
-                <h3 class="font-bold flex items-center text-[18px]">Instructions</h3>
-            </div>
-            <p class="text-[17px] instruct whitespace-pre-line">
-                {{ food.strInstructions }} 
-            </p>
-        </div> -->
-        
-    
         <div class="flex">
-            <!-- <h3>Video</h3> -->
+            
             <a :href="food.strYoutube" target="_blank" v-if="food.strYoutube" class="bg-green-100 p-3 rounded-lg  border border-green-200 flex gap-1 lg:gap-2">
             Watch Video <Youtube class="animate-pulse text-green-900" />
             </a>
@@ -150,6 +121,9 @@ const filteredIngredients = () => {
         Loading...<LoaderCircle class="animate-spin" />
     </div>
   </template>
+
+
+
 
 
 

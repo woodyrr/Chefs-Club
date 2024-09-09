@@ -2,8 +2,8 @@
 export default defineEventHandler(async (event) => {
     // Fetch or return data from your database
     const meals = [
-      { name: 'Fajita Chicken Pasta', category: 'Dinner', area: 'unknown',
-            ingredients:{
+      { name: 'Fajita Chicken Pasta', category: 'Dinner', time: {type:"minutes", min:30, max:45 }, dificulty:"easy", chef:"Woodro", area: 'unknown', img:'https://theflavoursofkitchen.com/wp-content/uploads/2020/04/Creamy-Chicken-Fajita-Pasta-2.jpg',
+        ingredients:{
             "pasta": {
                 type: "rigatoni or penne",
                 quantity:"4",
@@ -11,39 +11,39 @@ export default defineEventHandler(async (event) => {
                 
             },
             "milk": {
-                type:"any",
+                
                 quantity:"5",
                 unit: "cup",
             },
             "fajita seasoning":{
-                type:"any",
+                
                 quantity:"2",
                 unit:"packet"
             },
             "chicken breast":{
                 type:"cubed",
                 quantity:"3",
-                unit: "none",
+                
             },
             "white onion":{
                 type:"finely diced",
                 quantity:"1",
-                unit: "any",
+                unit: "small",
             },
             "red bell pepper":{
                 type:"sliced",
                 quantity:"1",
-                unit: "any",
+                
             },
             "green bell pepper":{
                 type:"sliced",
                 quantity:"1",
-                unit: "any",
+                
             },
             "yellow bell pepper":{
                 type:"sliced",
                 quantity:"1",
-                unit: "any",
+                
             },
             "garlic":{
                 type:"minced",
@@ -57,51 +57,44 @@ export default defineEventHandler(async (event) => {
             },
             "parsley":{
                 type:"chopped",
-                quantity:"any",
+                
                 unit: "garnish",
             },
-            seasoning:{
+            
+        },
+        seasoning:{
 
-                salt:{
-                    type:"kosher",
-                    quantity:"1",
-                    unit: "tsp",
-                },
-                oil:{
-                    type:"olive",
-                    quantity:"3",
-                    unit: "tbsp",
-                },
-                pepper:{
-                    type:"black",
-                    quantity:"1",
-                    unit: "tsp",
-                },
-                cumin:{
-                    type:"ground",
-                    quantity:"1",
-                    unit: "tbsp",
-                },
-                garlic:{
-                    type:"powder",
-                    quantity:"1",
-                    unit: "tbsp",
-                },
-                chili:{
-                    type:"powder",
-                    quantity:"1",
-                    unit: "tbsp",
-                }
+            salt:{
+                type:"kosher",
+                quantity:"1",
+                unit: "tsp",
+            },
+            oil:{
+                type:"olive",
+                quantity:"3",
+                unit: "tbsp",
+            },
+            pepper:{
+                type:"black",
+                quantity:"1",
+                unit: "tsp",
+            },
+            cumin:{
+                type:"ground",
+                quantity:"1",
+                unit: "tbsp",
+            },
+            garlic:{
+                type:"powder",
+                quantity:"1",
+                unit: "tbsp",
+            },
+            chili:{
+                type:"powder",
+                quantity:"1",
+                unit: "tbsp",
             }
         },
-        time: {
-                type:"minutes",
-                min:30,
-                max:45
-            },
-        dificulty:"easy",
-
-        chef:"Woodro",
 
         description: "This simple recipe combines chicken fajitas and pasta in one delicious dish made in just one pot. It boasts a blend of Tex-Mex flavors in a comforting dish that we'd enjoy any day of the week — or weekend! Start by searing sliced chicken in a pot until golden, then sauté bell peppers and onions until caramelized. Season generously with garlic, cumin, and chili powder, and let the flavors meld. Add milk and penne to the pot; let the pasta soak up the rich spices as it simmers to tender perfection, and the sauce thickens into a creamy coating that clings to each pasta tube. Stir in pepper Jack cheese for a flavorful dish that seriously satisfies the soul!",
         

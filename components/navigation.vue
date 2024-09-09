@@ -149,6 +149,9 @@ const userProfile = computed(() => {
                 <HistoryIcon class="h-4 w-4" />
                 Favorites
               </a>
+              <FindLocalChef />
+              <PresetShare />
+
             </nav>
 
             <div class="mt-auto">
