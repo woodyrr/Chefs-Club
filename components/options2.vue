@@ -19,5 +19,7 @@
     </div>
 </template>
 <script setup>
+import { useUserSession } from '~/composables/profiles/useUserSession';
+
 const user = useUserSession()
 </script>

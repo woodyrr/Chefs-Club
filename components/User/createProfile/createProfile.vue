@@ -14,8 +14,9 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import birthDate from '../formItems/birthDate.vue';
-import { useProfiles } from '@/composables/useProfiles';
-import { useUserSession } from '@/composables/useUserSession';
+import { useProfiles } from '~/composables/profiles/useProfiles';
+import { useUserSession } from '~/composables/profiles/useUserSession';
+import { updateProfiles } from '~/composables/profiles/updateProfiles';
 
 const profile = useProfiles();
 const update = updateProfiles()

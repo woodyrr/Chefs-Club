@@ -55,6 +55,8 @@ import options from '~/components/options.vue';
 // import userName from '~/components/User/formItems/username.vue';
 import birthDate from '~/components/User/formItems/birthDate.vue';
 import formCarousel from '~/components/User/formItems/formCarousel.vue';
+import { useProfiles } from '~/composables/profiles/useProfiles';
+import {useUserSession} from '~/composables/profiles/useUserSession.ts'
 
 const user = useUserSession()
 const profile = useProfiles()

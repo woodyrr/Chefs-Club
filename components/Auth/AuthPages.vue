@@ -6,6 +6,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 // import GitHubIcon from '../icons/radix-icons/github-logo.svg'
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { useUserSession } from '~/composables/profiles/useUserSession';
+import { useProfiles } from '~/composables/profiles/useProfiles';
 // import { account} from '~/appwrite';
 const user = useUserSession();
 const profile = useProfiles()

@@ -8,9 +8,9 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import createProfile from './User/createProfile/createProfile.vue';
-import { useUserSession } from '@/composables/useUserSession';
-import { updateProfiles } from '@/composables/updateProfiles';
-import { useProfiles } from '@/composables/useProfiles';
+import { useUserSession } from '~/composables/profiles/useUserSession';
+import { updateProfiles } from '~/composables/profiles/updateProfiles';
+import { useProfiles } from '~/composables/profiles/useProfiles';
 
 const user = useUserSession();
 const profile = useProfiles();

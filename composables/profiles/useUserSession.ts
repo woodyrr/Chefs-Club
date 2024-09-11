@@ -2,7 +2,7 @@
 
 import { ID } from "appwrite";
 import { ref } from "vue";
-import { account } from "../appwrite";
+import { account } from "../../appwrite";
 import { type Models } from 'appwrite';
 
 const current = ref<Models.Session | null>(null); // Reference to current user object
