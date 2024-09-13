@@ -14,58 +14,52 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import birthDate from '../formItems/birthDate.vue';
-import { useProfiles } from '~/composables/profiles/useProfiles';
-import { useUserSession } from '~/composables/profiles/useUserSession';
-import { updateProfiles } from '~/composables/profiles/updateProfiles';
 
-const profile = useProfiles();
-const update = updateProfiles()
-const user = useUserSession();
 
-const firstName = ref('');
-const lastName = ref('');
-const birthDateRef = ref(null);
-const isDialogOpen = ref(false);
+// const firstName = ref('');
+// const lastName = ref('');
+// const birthDateRef = ref(null);
+// const isDialogOpen = ref(false);
 
-const handleAddToProfile = async () => {
-  // Collect data from birthDate component
-  const birthDateValues = birthDateRef.value.values;
-  if (firstName.value === '' || lastName.value === '' || !birthDateValues) {
-    console.log("First name, last name, or birthdate is missing.");
-    return;
-  } else {
-    const postIdeaData = {
-      userId: user.current.value?.userId,
-      email: user.current.value?.providerUid,
-      dob: birthDateValues.dob,
-      firstName: firstName.value,
-      lastName: lastName.value,
-    };
+// const handleAddToProfile = async () => {
+//   // Collect data from birthDate component
+//   const birthDateValues = birthDateRef.value.values;
+//   if (firstName.value === '' || lastName.value === '' || !birthDateValues) {
+//     console.log("First name, last name, or birthdate is missing.");
+//     return;
+//   } else {
+//     const postIdeaData = {
+//       userId: user.current.value?.userId,
+//       email: user.current.value?.providerUid,
+//       dob: birthDateValues.dob,
+//       firstName: firstName.value,
+//       lastName: lastName.value,
+//     };
 
-    await profile.addUpdatedProfile(postIdeaData);
+//     await profile.addUpdatedProfile(postIdeaData);
 
-    // Optionally reset form fields
-    firstName.value = '';
-    lastName.value = '';
-    birthDateRef.value.setFieldValue('dob', null);
+//     // Optionally reset form fields
+//     firstName.value = '';
+//     lastName.value = '';
+//     birthDateRef.value.setFieldValue('dob', null);
 
-    // Close the dialog
-    isDialogOpen.value = false;
-  }
-}
+//     // Close the dialog
+//     isDialogOpen.value = false;
+//   }
+// }
 
-const handleSubmit = async () => {
-  // Trigger birthDate onSubmit to validate
-  if (!birthDateRef.value) {
-    console.log("Birthday is not entered");
-    return;
-  } else {
-    await birthDateRef.value.onSubmit();
-    // Add to profile if valid
-    await handleAddToProfile();
-    await update.fetch()
-  }
-}
+// const handleSubmit = async () => {
+//   // Trigger birthDate onSubmit to validate
+//   if (!birthDateRef.value) {
+//     console.log("Birthday is not entered");
+//     return;
+//   } else {
+//     await birthDateRef.value.onSubmit();
+//     // Add to profile if valid
+//     await handleAddToProfile();
+//     await update.fetch()
+//   }
+// }
 </script>
 
 <template>
@@ -111,7 +105,7 @@ const handleSubmit = async () => {
         <CarouselNext />
       </Carousel>
       <DialogFooter>
-        <Button type="button" @click="handleSubmit">
+        <Button type="button" @click="">
           Save changes
         </Button>
       </DialogFooter>

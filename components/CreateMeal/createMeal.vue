@@ -8,7 +8,7 @@ import {ref, onMounted, onUnmounted } from 'vue'
 
 const isLoggedIn = ref(false)
 // const router = useRouter()
-const auth = getAuth();
+
 
 //auth user personal info stored in arrays
 let usersName = []

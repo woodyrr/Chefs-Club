@@ -8,23 +8,15 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import createProfile from './User/createProfile/createProfile.vue';
-import { useUserSession } from '~/composables/profiles/useUserSession';
-import { updateProfiles } from '~/composables/profiles/updateProfiles';
-import { useProfiles } from '~/composables/profiles/useProfiles';
+const client = useSupabaseClient()
+const user = useSupabaseUser()
+const logout = async () => {
+  await client.auth.signOut()
+  navigateTo('/')
+}
 
-const user = useUserSession();
-const profile = useProfiles();
-const update = updateProfiles();
-const loggedInUser = ref(null);
-
-
-onMounted(async () => {
-  await update.fetch();
-});
-
-const userProfile = computed(() => {
-  return update.recent.value?.find(profile => profile.userId === user.current.value?.userId);
-});
+// const user = useSupabaseUser()
+// console.log(user.value)
 
 </script>
 
@@ -192,15 +184,15 @@ const userProfile = computed(() => {
           </form>
         </div>
         
-        <div v-if="!userProfile">
+        <!-- <div v-if="user">
           <createProfile />
-        </div>
-        <div v-else class="flex items-center">
-          <div v-for="item in update.recent.value" :key="item.$id">
+        </div> -->
+        <div class="flex items-center">
+          <!-- <div v-for="item in update.recent.value" :key="item.$id">
             <div v-if="item.userId === user.current.value.userId">
               Hey {{ item.firstName }}
             </div>
-          </div>
+          </div> -->
           <DropdownMenu>
             <DropdownMenuTrigger as-child>
               <Button variant="secondary" size="icon" class="rounded-full">
@@ -214,7 +206,8 @@ const userProfile = computed(() => {
               <DropdownMenuItem>Settings</DropdownMenuItem>
               <DropdownMenuItem>Support</DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem @click="user.logout()">Logout</DropdownMenuItem>
+              <DropdownMenuItem  v-if="user"
+              variant="link" @click="logout">Logout</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

@@ -42,15 +42,6 @@ import Navigation from '~/components/navigation.vue';
 import options from '~/components/options.vue';
 import option2 from '~/components/options2.vue';
 import {onMounted} from 'vue';
-import { useUserSession } from '~/composables/profiles/useUserSession';
-import { useProfiles } from '~/composables/profiles/useProfiles';
-import { updateProfiles } from '~/composables/profiles/updateProfiles';
-const user = useUserSession()
-const profile = useProfiles()
-const update = updateProfiles()
 
-onMounted(async () => {
-  await update.fetch();
-});
 </script>
 

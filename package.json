@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@radix-icons/vue": "^1.0.0",
+    "@supabase/supabase-js": "^2.45.4",
     "@vee-validate/zod": "^4.13.2",
     "@vueuse/core": "^10.11.0",
     "appwrite": "^15.0.0",
@@ -19,7 +20,6 @@
     "embla-carousel-autoplay": "^8.1.6",
     "embla-carousel-vue": "^8.1.6",
     "lucide-vue-next": "^0.408.0",
-    "node-appwrite": "^13.0.0",
     "nuxt": "^3.12.3",
     "radix-vue": "^1.9.1",
     "shadcn-nuxt": "^0.10.4",
@@ -32,6 +32,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@nuxtjs/supabase": "^1.4.0",
     "@nuxtjs/tailwindcss": "^6.12.1"
   }
 }

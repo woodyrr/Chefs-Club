@@ -118,7 +118,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { useFetch } from '#app'
-import { ChefHat, Clock, Gauge, LoaderCircle } from 'lucide-vue-next';
+import { ChefHat, Clock, Gauge, LoaderCircle, Youtube } from 'lucide-vue-next';
 
 const { data: meals } = await useFetch('/api/meals')
 </script>
