@@ -7,16 +7,13 @@
     </div>
 </template>
 
-<script>
-export default {
-    setup () {
-        
+<script setup>
+// const user = useSupabaseUser()
+// console.log( user.value)
+// console.log(user.value.user_metadata.name)
 
-        return {}
-    }
-}
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>

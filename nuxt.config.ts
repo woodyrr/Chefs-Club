@@ -5,7 +5,8 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt", "@nuxtjs/supabase"],
   runtimeConfig: {
     public: {
-      baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+      baseUrl: 'http://localhost:3000',
+      // baseUrl: process.env.BASE_URL || 'http://localhost:3000',
     },
   },
   

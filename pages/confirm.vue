@@ -1,5 +1,7 @@
 <script setup lang="ts">
 const user = useSupabaseUser()
+// const supabase = useSupabaseUser
+// supabase.auth.getUser()
 import { Skeleton } from '@/components/ui/skeleton'
 watch(user, () => {
   if (user.value) {

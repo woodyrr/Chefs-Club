@@ -1,8 +1,9 @@
 <script setup>
 import { Github } from 'lucide-vue-next';
 import { useRouter } from 'nuxt/app';
+// const { user } = await supabase.auth.getUser();
 
-const user = useSupabaseUser()
+// const user = useSupabaseUser()
 const client = useSupabaseClient()
 const router = useRouter()
 const redirectTo = `${useRuntimeConfig().public.baseUrl}/confirm`
@@ -18,20 +19,12 @@ watchEffect(() => {
 //     provider: 'github',
 //   })
 // }
-
+import { ConfigProvider } from "radix-vue"
 </script>
 
 <template>
+   
     <section class=" min-h-screen flex items-center justify-center bg-foreground">
-        
-    
-    <!-- <Button
-        class="text-lg flex items-center justify-center w-full"
-        label="Github"
-        
-        @click="auth.signInWithOAuth({ provider: 'github', options: { redirectTo } })"
-      ><Github />
-    </Button> -->
 
         <Card class="m-auto max-w-xl w-[90%] sm:w-[70%] "  >
             <CardHeader class="text-center flex flex-col gap-3 sm:gap-2">
@@ -67,7 +60,7 @@ watchEffect(() => {
             </CardContent>
         </Card>
     </section>
- 
+
     
     
  

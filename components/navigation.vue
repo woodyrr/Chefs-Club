@@ -15,6 +15,13 @@ const logout = async () => {
   navigateTo('/')
 }
 
+const userName = user.value.user_metadata.user_name
+const userAvatar = user.value.user_metadata.avatar_url
+
+// const user = useSupabaseUser()
+// console.log( user.value)
+// console.log(user.value.user_metadata.name)
+// avatar-URL, user_name
 // const user = useSupabaseUser()
 // console.log(user.value)
 
@@ -103,7 +110,7 @@ const logout = async () => {
       </div>
     </div>
     <div class="flex flex-col text-black">
-      <header class="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-14">
+      <header class="flex justify-between h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-14">
         <Sheet>
 
           <SheetTrigger as-child>
@@ -195,9 +202,12 @@ const logout = async () => {
           </div> -->
           <DropdownMenu>
             <DropdownMenuTrigger as-child>
-              <Button variant="secondary" size="icon" class="rounded-full">
-                <CircleUser class="h-5 w-5 text-blue-500" />
-                <span class="sr-only">Toggle user menu</span>
+              <Button variant="secondary"  class="bg-clear hover:bg-clear flex gap-1 p-0">
+                <!-- <CircleUser class="h-5 w-5 text-blue-500" /> -->
+                 <div class="font semi-bold lg:text-base">{{ userName }}</div>
+                <img :src="userAvatar" alt="" srcset="" class="h-8 w-8 md:h-10 md:w-10 rounded-full border border-green-200">
+                
+                <!-- <span class="sr-only">Toggle user menu</span> -->
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
