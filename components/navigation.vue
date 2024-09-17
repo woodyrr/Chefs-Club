@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
-import {Home, Menu, Search, Star,  DollarSign, HistoryIcon, PanelsTopLeft, User, SmilePlus, Heart, LogOut, Settings, BadgeHelp, Bell, ChefHat, CookingPot } from 'lucide-vue-next';
+import {Home, Menu, Search, Star,  DollarSign, HistoryIcon, PanelsTopLeft, User, SmilePlus, Heart, LogOut, Settings, BadgeHelp, Bell, ChefHat, CookingPot, CirclePlus } from 'lucide-vue-next';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -15,6 +15,7 @@ const logout = async () => {
   await client.auth.signOut()
   navigateTo('/')
 }
+
 
 const userName = user.value.user_metadata.user_name
 const userAvatar = user.value.user_metadata.avatar_url
@@ -167,6 +168,18 @@ const name = user.value.user_metadata.name
                   </DialogFooter>
                 </DialogContent>
               </Dialog>
+
+
+              <Dialog>
+                <DialogTrigger as-child>
+                  <button variant="outline" class="bg-white p-2 border rounded-md">
+                    <CirclePlus class="text-muted-foreground text-sm w-4 h-4" />
+                  </button>
+                </DialogTrigger>
+              </Dialog>
+
+
+
               <Dialog>
                 <DialogTrigger as-child>
                   <button variant="outline" class="bg-white p-2 border rounded-md">
@@ -175,78 +188,86 @@ const name = user.value.user_metadata.name
                 </DialogTrigger>
               </Dialog>
 
-              
 
-            <Sheet>
-              <SheetTrigger as-child>
-                <Button variant="none"  class="bg-clear hover:bg-clear flex gap-1 p-0">
-                  <img :src="userAvatar" alt="" srcset="" class="h-8 w-8 md:h-10 md:w-10 rounded-full border border-green-200">
-                </Button>
-              </SheetTrigger>
-              <SheetContent class="w-[320px] md:w-[38%] flex flex-col gap-4">
-                <SheetHeader>
-                  <SheetTitle class="flex gap-1 items-center">
-                    
+      
+
+              <Sheet>
+                <SheetTrigger as-child>
+                  <Button variant="none"  class="bg-clear hover:bg-clear flex gap-1 p-0">
                     <img :src="userAvatar" alt="" srcset="" class="h-8 w-8 md:h-10 md:w-10 rounded-full border border-green-200">
-                    <div class="flex flex-col text-gray-600 text-left">
-                      <div class="text-gray-800 text-sm">{{ userName }}</div>
-                      <div class="text-sm text-gray-500">{{ name }}</div>
-                    </div>
+                  </Button>
+                </SheetTrigger>
+                <SheetContent class="w-[320px] md:w-[38%] flex flex-col gap-4">
+                  <SheetHeader>
+                    <SheetTitle class="flex gap-1 items-center">
+                      
+                      <img :src="userAvatar" alt="" srcset="" class="h-8 w-8 md:h-10 md:w-10 rounded-full border border-green-200">
+                      <div class="flex flex-col text-gray-600 text-left">
+                        <div class="text-gray-800 text-sm">{{ userName }}</div>
+                        <div class="text-sm text-gray-500">{{ name }}</div>
+                      </div>
+                      
+                    </SheetTitle>
+                    <SheetDescription class="flex flex-col gap-2 pt-2">
+                      <button class="flex gap-2 items-center w-full bg-transparent text-left duration-150 hover:bg-gray-100 py-2 px-1 rounded-lg text-gray-700">
+                        <SmilePlus class="w-4 h-4" />
+                        Set status</button>
+                      <div class="border"></div>
+                    </SheetDescription>
+                  </SheetHeader>
+                  <div class="text-gray-700 text-[14px] flex flex-col gap-2">
+
+                    <button class="flex gap-2 items-center w-full bg-transparent text-left duration-150 hover:bg-gray-100 py-2 px-1 rounded-lg">
+                      <User class="w-4 h-4" />
+                      Your profile
+                    </button>
+
+                    <button class="flex gap-2 items-center w-full bg-transparent text-left duration-150 hover:bg-gray-100 py-2 px-1 rounded-lg">
+                      <CookingPot class="h-4 w-4 "  />
+                      Your recipes
+                    </button>
+
+                    <button class="flex gap-2 items-center w-full bg-transparent text-left duration-150 hover:bg-gray-100 py-2 px-1 rounded-lg">
+                      <Star class="w-4 h-4" />
+                      Your stars
+                    </button>
+
+                    <button class="flex gap-2 items-center w-full bg-transparent text-left duration-150 hover:bg-gray-100 py-2 px-1 rounded-lg">
+                      <Heart class="w-4 h-4" />
+                      Your sponsors
+                    </button>
+
+                    <div class="border"></div>
+
+                    <button class="flex gap-2 items-center w-full bg-transparent text-left duration-150 hover:bg-gray-100 py-2 px-1 rounded-lg lg:hiddden">
+                      <CirclePlus class="h-4 w-4 "  />
+                      
+                      Create New
+                    </button>
                     
-                  </SheetTitle>
-                  <SheetDescription class="flex flex-col gap-2 pt-2">
-                    <button class="flex gap-2 items-center w-full bg-transparent text-left duration-150 hover:bg-gray-100 py-2 px-1 rounded-lg text-gray-700">
-                      <SmilePlus class="w-4 h-4" />
-                      Set status</button>
                     <div class="border"></div>
-                  </SheetDescription>
-                </SheetHeader>
-                <div class="text-gray-700 text-[14px] flex flex-col gap-2">
-
-                  <button class="flex gap-2 items-center w-full bg-transparent text-left duration-150 hover:bg-gray-100 py-2 px-1 rounded-lg">
-                    <User class="w-4 h-4" />
-                    Your profile
-                  </button>
-
-                  <button class="flex gap-2 items-center w-full bg-transparent text-left duration-150 hover:bg-gray-100 py-2 px-1 rounded-lg">
-                    <CookingPot class="h-4 w-4 "  />
-                    Your recipes
-                  </button>
-
-                  <button class="flex gap-2 items-center w-full bg-transparent text-left duration-150 hover:bg-gray-100 py-2 px-1 rounded-lg">
-                    <Star class="w-4 h-4" />
-                    Your stars
-                  </button>
-
-                  <button class="flex gap-2 items-center w-full bg-transparent text-left duration-150 hover:bg-gray-100 py-2 px-1 rounded-lg">
-                    <Heart class="w-4 h-4" />
-                    Your sponsors
-                  </button>
-
-                  <div class="border">
+                    
+                    <button class="flex gap-2 items-center w-full bg-transparent text-left duration-150 hover:bg-gray-100 py-2 px-1 rounded-lg">
+                      <BadgeHelp class="w-4 h-4" />
+                      Help
+                    </button>
+                    <button class="flex gap-2 items-center w-full bg-transparent text-left duration-150 hover:bg-gray-100 py-2 px-1 rounded-lg">
+                      <Settings class="w-4 h-4" />
+                      Settings
+                    </button>
 
                   </div>
-                  <button class="flex gap-2 items-center w-full bg-transparent text-left duration-150 hover:bg-gray-100 py-2 px-1 rounded-lg">
-                    <BadgeHelp class="w-4 h-4" />
-                    Help
-                  </button>
-                  <button class="flex gap-2 items-center w-full bg-transparent text-left duration-150 hover:bg-gray-100 py-2 px-1 rounded-lg">
-                    <Settings class="w-4 h-4" />
-                    Settings
-                  </button>
-
-                </div>
-                <SheetFooter class="">
-                  <div class="flex flex-col gap-2 pt-2 w-full text-right">
-                    <div class="border"></div>
-                    <Button class="flex gap-2 items-center w-full bg-transparent duration-150 hover:bg-gray-100 py-2 px-1 rounded-lg text-gray-700 text-[14px]" @click="logout">
-                      <LogOut class="w-4 h-4" />
-                      SignOut
-                    </Button>
-                  </div>
-                </SheetFooter>
-              </SheetContent>
-            </Sheet>
+                  <SheetFooter class="">
+                    <div class="flex flex-col gap-2 pt-2 w-full text-right">
+                      <div class="border"></div>
+                      <Button class="flex gap-2 items-center w-full bg-transparent duration-150 hover:bg-gray-100 py-2 px-1 rounded-lg text-gray-700 text-[14px]" @click="logout">
+                        <LogOut class="w-4 h-4" />
+                        SignOut
+                      </Button>
+                    </div>
+                  </SheetFooter>
+                </SheetContent>
+              </Sheet>
             </div>
         </section>
         
@@ -292,6 +313,7 @@ const name = user.value.user_metadata.name
                 
               
             </section>
+            
 
           </div>
           <!-- <TabsContent value="account">
