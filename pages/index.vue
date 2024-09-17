@@ -19,7 +19,6 @@ watchEffect(() => {
 //     provider: 'github',
 //   })
 // }
-import { ConfigProvider } from "radix-vue"
 </script>
 
 <template>
