@@ -5,7 +5,6 @@ import { useRouter } from 'nuxt/app';
 
 const user = useSupabaseUser()
 const client = useSupabaseClient()
-const router = useRouter()
 const redirectTo = `${useRuntimeConfig().public.baseUrl}/confirm`
 
 watchEffect(() => {
