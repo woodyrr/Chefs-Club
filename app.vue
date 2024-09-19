@@ -11,6 +11,6 @@
     </div>
   </div>
 </template>
-<script src="" setup>
+<script setup>
 const user = useSupabaseUser()
 </script>
