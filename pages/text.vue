@@ -120,7 +120,8 @@ import {
 import { useFetch } from '#app'
 import { ChefHat, Clock, Gauge, LoaderCircle, Youtube } from 'lucide-vue-next';
 
-const { data: meals } = await useFetch('/api/meals')
+
+const { data: meals } = await useFetch('/api/userMeals')
 </script>
 
 <template>

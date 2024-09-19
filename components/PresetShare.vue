@@ -14,7 +14,7 @@ import {
 <template>
   <Popover>
     <PopoverTrigger as-child>
-      <Button variant="secondary" class="duration-200 hover:bg-gray-300">
+      <Button variant="secondary" class="duration-200 bg-gray-300 hover:bg-green-300">
             <PersonStanding class="h-5 w-5" />
             <div class="">Invite friends</div>
       </Button>
@@ -35,7 +35,7 @@ import {
           </Label>
           <Input
             id="link"
-            default-value="https://SpareChange.com"
+            default-value="chefs-club.onrender.com/"
             read-only
             class="h-9"
           />

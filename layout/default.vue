@@ -4,6 +4,7 @@
       <navigation class="w-full">
         <slot />
       </navigation>
+      <NuxtPage />
   </div>
 </template>
 
