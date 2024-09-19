@@ -1,7 +1,16 @@
 <template>
   <div>
-    <navigation class="w-full">
+    <div >
+
+    </div>
+    <navigation v-if="user" class="w-full">
           <NuxtPage />
-      </navigation>
+    </navigation>
+    <div v-else>
+      <AuthAuthlog />
+    </div>
   </div>
 </template>
+<script src="" setup>
+const user = useSupabaseUser()
+</script>
