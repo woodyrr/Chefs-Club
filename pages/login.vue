@@ -14,11 +14,6 @@ watchEffect(() => {
   }
 })
 
-// async function signInWithGithub() {
-//   const { data, error } = await supabase.auth.signInWithOAuth({
-//     provider: 'github',
-//   })
-// }
 </script>
 
 <template>
