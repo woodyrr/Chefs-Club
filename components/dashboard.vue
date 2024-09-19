@@ -1,18 +1,15 @@
 <template>
-    <!-- <div> -->
-        <!-- <Navigation /> -->
-        <section class="flex flex-col gap-4 w-full">
-            <options2 />
-            <options />
+        <section class="flex flex-col md:flex-row gap-4 md:gap-8 w-full pt-6 px-[3%] md:px-[15%] lg:px-[20%]">
+            <user-profile />
+            <div class="border md:hidden"></div>
+            <!-- <options /> -->
+
+            //user personal public/private meals
         </section>
-         
-    <!-- </div> -->
 </template>
 
 <script setup>
-import Navigation from '~/components/navigation.vue';
 import options from '~/components/options.vue';
-import option2 from '~/components/options2.vue';
 import {onMounted} from 'vue';
 
 </script>

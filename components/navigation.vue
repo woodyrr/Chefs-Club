@@ -39,7 +39,7 @@ const name = user.value.user_metadata.name
 
     <!-- end here -->
     <div class="flex flex-col text-black">
-      <header class="flex flex-col justify-between h-[12%]  gap-1 border-b bg-muted/40 px-4  lg:px-4">
+      <header class="flex flex-col justify-between h-[17%] sm:h-[12%] md:h-[11%] lg:h-[14%]  px-3 border-b bg-muted/65 sm:px-4  lg:px-4">
         <section class="flex justify-between pt-2 gap-4 ">
           <div class="flex items-center gap-3">
             <Sheet class="">
@@ -55,7 +55,7 @@ const name = user.value.user_metadata.name
                 </Button>
               </SheetTrigger>
 
-              <SheetContent side="left" class="flex flex-col w-[330px]  ">
+              <SheetContent side="left" class="flex flex-col w-[330px] rounded-r-xl ">
 
                 <nav class="grid gap-2 text-lg font-medium text-black">
                   <div class="pb-1">
@@ -177,9 +177,9 @@ const name = user.value.user_metadata.name
               </Dialog>
 
 
-              <Dialog>
+              <Dialog class="">
                 <DialogTrigger as-child>
-                  <button variant="outline" class="bg-white p-2 border rounded-md">
+                  <button variant="outline" class="bg-white p-2 border rounded-md hidden md:block">
                     <CirclePlus class="text-muted-foreground text-sm w-4 h-4" />
                   </button>
                 </DialogTrigger>
@@ -198,13 +198,13 @@ const name = user.value.user_metadata.name
 
       
 
-              <Sheet>
+              <Sheet class="">
                 <SheetTrigger as-child>
                   <Button variant="none"  class="bg-clear hover:bg-clear flex gap-1 p-0">
-                    <img :src="userAvatar" alt="" srcset="" class="h-8 w-8 md:h-10 md:w-10 rounded-full border border-green-200">
+                    <img :src="userAvatar" alt="" srcset="" class="h-8 w-8 md:h-10 md:w-10 rounded-full border border-green-200 ">
                   </Button>
                 </SheetTrigger>
-                <SheetContent class="w-[320px] md:w-[38%] flex flex-col gap-4">
+                <SheetContent class="w-[320px] md:w-[38%] flex flex-col gap-4 rounded-l-xl">
                   <SheetHeader>
                     <SheetTitle class="flex gap-1 items-center">
                       
@@ -246,7 +246,7 @@ const name = user.value.user_metadata.name
 
                     <div class="border"></div>
 
-                    <button class="flex gap-2 items-center w-full bg-transparent text-left duration-150 hover:bg-gray-100 py-2 px-1 rounded-lg lg:hiddden">
+                    <button class="flex gap-2 items-center w-full bg-transparent text-left duration-150 hover:bg-gray-100 py-2 px-1 rounded-lg md:hidden">
                       <CirclePlus class="h-4 w-4 "  />
                       
                       Create New
@@ -290,33 +290,42 @@ const name = user.value.user_metadata.name
                   to="/history"
                   class=""
                 > -->
-                <div class="duration-150 hover:bg-gray-200 py-1 px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
+                <NuxtLink to="/home" class="duration-150 hover:bg-gray-200 py-1 px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
                   <PanelsTopLeft class="h-5 w-5 text-gray-700"  />
                   Overview
-                </div>
+                </NuxtLink>
                   
                 <!-- </NuxtLink> -->
             </section>
             
 
             <section value="recipes" class="bg-transparent border-b flex items-center gap-1 p-3  text-primary">
-              <div class="duration-150 hover:bg-gray-200 py-1 px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
+              <NuxtLink to="/bro" class="duration-150 hover:bg-gray-200 py-1 px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
                 
                 <CookingPot class="h-5 w-5 text-gray-700"  />
                 
                 Recipes
-              </div>
+              </NuxtLink>
+                
+              
+            </section>
+
+            <section value="discover" class="bg-transparent border-b flex items-center gap-1 p-3  text-primary">
+              <NuxtLink to="/discover" class="duration-150 hover:bg-gray-200 py-1 px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
+                <PackageSearch class="h-5 w-5 text-gray-700" />
+                Discover
+              </NuxtLink>
                 
               
             </section>
 
             <section value="stars" class="bg-transparent border-b flex items-center gap-1 p-3   text-primary">
-              <div class="duration-150 hover:bg-gray-200 py-1 px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
+              <NuxtLink to="/login" class="duration-150 hover:bg-gray-200 py-1 px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
                 
                 <Star class="w-4 h-4 text-gray-700" />
                   
                   Stars
-              </div>
+              </NuxtLink>
                 
               
             </section>

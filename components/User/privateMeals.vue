@@ -1,5 +1,6 @@
 <script setup>
 import { Button } from '@/components/ui/button'
+import { ref } from 'vue';
 import {
   Dialog,
   DialogContent,
@@ -16,22 +17,20 @@ const supabase = useSupabaseUser()
 //   return data
 // })
 const { data: meals } = await useFetch('/api/userMeals')
-
-// Handling the data output
-// console.log(meals.value)
+let showmore = ref(false)
 </script>
 
 <template>
-  <section class="p-[3%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-8 text-[16px] text-[#E5E7EB] font-medium sm:p-[1%]">
+  <section class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-8 text-[16px] text-[#E5E7EB] font-medium">
     <!-- Looping through each meal -->
     <Dialog v-for="(mealEntry, index) in meals" :key="index">
       <DialogTrigger as-child class="border group">
         <Button
           variant="outline"
           :style="{ backgroundImage: `url(${mealEntry.meal.img})`, backgroundSize: 'cover', backgroundPosition: 'center' }"
-          class="w-full h-[180px] sm:h-[250px] 2xl:h-[300px] rounded-xl flex items-center justify-center transform hover:scale-105 transition-transform duration-300 shadow-lg relative overflow-hidden"
+          class="w-[180px] h-[180px] sm:h-[250px] 2xl:h-[200px] sm:w-[180px] 2xl:w-[350px] rounded-xl flex items-center justify-center transform hover:scale-105 transition-transform duration-300 shadow-lg relative overflow-hidden border border-x-4 border-gray-400"
         >
-          <div class="absolute inset-0 bg-black bg-opacity-50 rounded-lg flex md:items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div class="absolute inset-0 bg-black bg-opacity-50 rounded-lg flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <span class="text-white text-lg font-bold p-4">
               {{ mealEntry.meal.name }}
             </span>
@@ -59,7 +58,10 @@ const { data: meals } = await useFetch('/api/userMeals')
       <DialogContent class="max-w-[99%] sm:max-w-[80%] md:max-w-[75%] xl:max-w-[70%] h-[98%] sm:h-[97%] xl:h-[94%] transition-all duration-300 transform origin-bottom sm:origin-center">
         <div v-if="mealEntry.meal" class="flex flex-col gap-6 2xl:gap-5 justify-center items-center md:px-[3%] ">
           <DialogTitle><h2 class="text-[26px] md:text-[45px] detailhead">{{ mealEntry.meal.name }}</h2></DialogTitle>
-          <DialogDescription><p class="text-sm lg:text-base">{{ mealEntry.meal.description }}</p></DialogDescription>
+          <DialogDescription v-if="showmore"><p class="text-sm lg:text-base" >{{ mealEntry.meal.description }} <button  @click="showmore = !showmore"  >(less)</button></p></DialogDescription>
+          <DialogDescription @click="showmore = !showmore"   v-else><p class="text-sm lg:text-base">{{  mealEntry.meal.description.slice(0, 150) }} <button @click="showmore = !showmore">(More)</button></p></DialogDescription>
+          
+
 
           <!-- Displaying Category and Area -->
           <div class="flex gap-3">

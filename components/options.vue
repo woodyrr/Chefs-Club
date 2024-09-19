@@ -1,16 +1,13 @@
 <template>
-    <section class="w-full ">
-        <!-- <ItemsCarousel /> -->
-         <!-- <div v-if="user">
-            <div class="flex gap-5">
-                <img :src="userAvatar" alt="" srcset="" class="w-[30%] sm:w-[20%]">
-                <h2>{{ userName }}</h2>
-            </div>
-         </div> -->
-         <!-- <div>
-            {{ meals}}
-         </div> -->
-        <UserPublicMeals />
+    <section class="w-full flex flex-col gap-3">
+      <div class="flex justify-between text-base">
+        <div>Pinned</div>
+        <div class="text-green-300">Customize your pins</div>
+      </div>
+      <div class="w-full grid grid-cols-0">
+        <PublicMeals />
+      </div>
+        
     </section>
 </template>
 

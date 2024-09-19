@@ -5,7 +5,7 @@ const user = useSupabaseUser()
 import { Skeleton } from '@/components/ui/skeleton'
 watch(user, () => {
   if (user.value) {
-    return navigateTo('/home')
+    return navigateTo('/')
   }
 }, { immediate: true })
 </script>

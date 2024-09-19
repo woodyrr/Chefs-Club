@@ -1,0 +1,13 @@
+<template>
+    <div>
+        Welcome to notifications
+    </div>
+</template>
+
+<script setup>
+
+</script>
+
+<style lang="scss" scoped>
+
+</style>

@@ -1,9 +1,6 @@
 <template>
-    <div  class="">
-        <!-- <NuxtPage /> -->
-        <navigation class="w-full">
+    <div  class=" ">
             <dashboard />
-        </navigation>
     </div>
 </template>
 
