@@ -8,7 +8,7 @@ import {
 import { useFetch } from '#app'
 import { ChefHat, Clock, LoaderCircle, Youtube } from 'lucide-vue-next';
 
-const { data: meals } = await useFetch('/api/userMeals')
+const { data: meals } = await useFetch(`${useRuntimeConfig().public.baseUrl}/api/userMeals`)
 let showmore = ref(false)
 // Handling the data output
 // console.log(meals.value)

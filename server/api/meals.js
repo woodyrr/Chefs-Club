@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
       const { data } = await client.from('meals').select();
       console.log(data)
     return { meals: data }
-    console
+    
     
   });
 
