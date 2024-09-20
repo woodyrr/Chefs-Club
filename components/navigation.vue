@@ -38,9 +38,9 @@ const name = user.value.user_metadata.name
     </div> -->
 
     <!-- end here -->
-    <div class="flex flex-col text-black">
-      <header class="flex flex-col justify-between h-[17%] sm:h-[12%] md:h-[11%] lg:h-[14%]  px-3 border-b bg-muted/65 sm:px-4  lg:px-4">
-        <section class="flex justify-between pt-2 gap-4 ">
+    <div class="flex flex-col text-black w-full">
+      <header class="flex flex-col justify-between h-[15%] sm:h-[12%] md:h-[11%] lg:h-[14%]  px-2 border-b bg-muted/65 sm:px-4  lg:px-4 w-full">
+        <section class="flex justify-between pt-2 gap-4 w-full">
           <div class="flex items-center gap-3">
             <Sheet class="">
 
@@ -281,17 +281,17 @@ const name = user.value.user_metadata.name
 
 
         <!-- heere -->
-        <div default-value="overview" class="w-full flex items-end" orientation="vertical">
+        <div default-value="overview" class="w-full flex justify-center items-end" orientation="vertical">
           
-          <div class="w-full flex h-[70%] gap-2">
+          <div class="w-full flex h-[70%] gap-2 justify-center sm:justify-normal sm:gap-2 ">
 
-            <section value="overview" class="bg-transparent border-b flex items-center gap-1 p-3  text-primary">
+            <section value="overview" class="bg-transparent border-b flex items-center gap-1 py-1 sm:p-3 text-primary">
                 <!-- <NuxtLink
                   to="/history"
                   class=""
                 > -->
-                <NuxtLink to="/home" class="duration-150 hover:bg-gray-200 py-1 px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
-                  <PanelsTopLeft class="h-5 w-5 text-gray-700"  />
+                <NuxtLink to="/home" class="duration-150 hover:bg-gray-200 p-[6px] sm:py-1  sm:p-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
+                  <PanelsTopLeft class="h-3 w-3 sm:w-5 sm:h-5 text-gray-700"  />
                   Overview
                 </NuxtLink>
                   
@@ -299,10 +299,10 @@ const name = user.value.user_metadata.name
             </section>
             
 
-            <section value="recipes" class="bg-transparent border-b flex items-center gap-1 p-3  text-primary">
-              <NuxtLink to="/bro" class="duration-150 hover:bg-gray-200 py-1 px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
+            <section value="recipes" class="bg-transparent border-b flex items-center gap-1 py-1 sm:p-3  text-primary">
+              <NuxtLink to="/bro" class="duration-150 hover:bg-gray-200 p-[6px] sm:py-1  sm:px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
                 
-                <CookingPot class="h-5 w-5 text-gray-700"  />
+                <CookingPot class="h-3 w-3 sm:w-5 sm:h-5 text-gray-700"  />
                 
                 Recipes
               </NuxtLink>
@@ -310,19 +310,19 @@ const name = user.value.user_metadata.name
               
             </section>
 
-            <section value="discover" class="bg-transparent border-b flex items-center gap-1 p-3  text-primary">
-              <NuxtLink to="/discover" class="duration-150 hover:bg-gray-200 py-1 px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
-                <PackageSearch class="h-5 w-5 text-gray-700" />
+            <section value="discover" class="bg-transparent border-b flex items-center gap-1 py-1 sm:p-3  text-primary">
+              <NuxtLink to="/discover" class="duration-150 hover:bg-gray-200 p-[6px] sm:py-1  sm:px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
+                <PackageSearch class="h-3 w-3 sm:w-5 sm:h-5 text-gray-700" />
                 Discover
               </NuxtLink>
                 
               
             </section>
 
-            <section value="stars" class="bg-transparent border-b flex items-center gap-1 p-3   text-primary">
-              <NuxtLink to="/login" class="duration-150 hover:bg-gray-200 py-1 px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
+            <section value="stars" class="bg-transparent border-b flex items-center gap-1 py-1 sm:p-3   text-primary">
+              <NuxtLink to="/login" class="duration-150 hover:bg-gray-200 p-[6px] sm:py-1  sm:px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
                 
-                <Star class="w-4 h-4 text-gray-700" />
+                <Star class="h-3 w-3 sm:w-5 sm:h-5 text-gray-700" />
                   
                   Stars
               </NuxtLink>
@@ -332,12 +332,6 @@ const name = user.value.user_metadata.name
             
 
           </div>
-          <!-- <TabsContent value="account">
-      Make changes to your account here.
-    </TabsContent>
-    <TabsContent value="password">
-      Change your password here.
-    </TabsContent> -->
         </div>
       </header>
       <div class="w-full">
