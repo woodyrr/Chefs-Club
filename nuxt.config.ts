@@ -3,8 +3,8 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt", "@nuxtjs/supabase"],
-  // generate: {
-  //   exclude: ['/login', '/confirm'],
+  // nitro: {
+  //   preset: 'node-server', // Or adjust for your deployment target
   // },
   runtimeConfig: {
     public: {
