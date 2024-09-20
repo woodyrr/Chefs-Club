@@ -50,7 +50,7 @@ const name = user.value.user_metadata.name
                   size="icon"
                   class="shrink-0"
                 >
-                  <Menu class="h-5 w-5" />
+                  <Menu class="h-6 w-6" />
                   <span class="sr-only">Toggle navigation menu</span>
                 </Button>
               </SheetTrigger>
@@ -59,37 +59,37 @@ const name = user.value.user_metadata.name
 
                 <nav class="grid gap-2 text-lg font-medium text-black">
                   <div class="pb-1">
-                    <ChefHat class="h-8 w-8 xl:h-10 xl:w-10  bg-black p-1 rounded-full text-white" />
+                    <ChefHat class="h-10 w-10 xl:h-12 xl:w-12  bg-black p-1 rounded-full text-white" />
                   </div>
                   
                   <NuxtLink
                   to="/history"
-                  class="duration-150 hover:bg-gray-200 flex items-center gap-2 rounded-lg p-2 text-base text-muted-foreground transition-all hover:text-primary"
+                  class="duration-150 hover:bg-gray-200 flex items-center gap-2 rounded-lg p-2 text-lg text-muted-foreground transition-all hover:text-primary"
                 >
-                  <Home class="h-4 w-4 md:h-5 md:w-5" />
+                  <Home class="h-5 w-5 md:h-5 md:w-5" />
                  Home
                 </NuxtLink>
                 <a
                   href="#"
-                  class="duration-150 hover:bg-gray-200 flex items-center gap-2 rounded-lg p-2 text-base text-muted-foreground transition-all hover:text-primary"
+                  class="duration-150 hover:bg-gray-200 flex items-center gap-2 rounded-lg p-2 text-lg text-muted-foreground transition-all hover:text-primary"
                 >
-                <Disc class="h-4 w-4 md:h-5 md:w-5" />
+                <Disc class="h-5 w-5 md:h-5 md:w-5" />
                   
                 Suggestions
                 </a>
                   <a
                     href="#"
-                    class="duration-150 hover:bg-gray-200 flex items-center gap-2 rounded-lg p-2 text-base text-muted-foreground transition-all hover:text-primary"
+                    class="duration-150 hover:bg-gray-200 flex items-center gap-2 rounded-lg p-2 text-lg text-muted-foreground transition-all hover:text-primary"
                   >
-                  <BookOpenText class="h-4 w-4 md:h-5 md:w-5" />
+                  <BookOpenText class="h-5 w-5 md:h-5 md:w-5" />
                   
                     Menus
                   </a>
                   <a
                   href="#"
-                  class="duration-150 hover:bg-gray-200 flex items-center gap-2 rounded-lg p-2 text-base text-muted-foreground transition-all hover:text-primary"
+                  class="duration-150 hover:bg-gray-200 flex items-center gap-2 rounded-lg p-2 text-lg text-muted-foreground transition-all hover:text-primary"
                   >
-                    <MessagesSquare class="h-4 w-4 md:h-5 md:w-5" />
+                    <MessagesSquare class="h-5 w-5 md:h-5 md:w-5" />
                     Discussions
                   </a>
 
@@ -98,9 +98,9 @@ const name = user.value.user_metadata.name
                   </div>
                   <a
                   href="#"
-                  class="duration-150 hover:bg-gray-200 flex items-center gap-2 rounded-lg p-2 text-base text-muted-foreground transition-all hover:text-primary"
+                  class="duration-150 hover:bg-gray-200 flex items-center gap-2 rounded-lg p-2 text-lg text-muted-foreground transition-all hover:text-primary"
                   >
-                    <PackageSearch class="h-4 w-4 md:h-5 md:w-5" />
+                    <PackageSearch class="h-5 w-5 md:h-5 md:w-5" />
                     Explore
                   </a>
 
@@ -145,7 +145,7 @@ const name = user.value.user_metadata.name
               <Dialog>
                 <DialogTrigger as-child>
                   <button variant="outline" class="bg-white p-2 border rounded-md">
-                    <Search class="text-muted-foreground text-sm w-4 h-4" />
+                    <Search class="text-muted-foreground text-sm w-5 h-5" />
                   </button>
                  
                 </DialogTrigger>
@@ -180,7 +180,7 @@ const name = user.value.user_metadata.name
               <Dialog class="">
                 <DialogTrigger as-child>
                   <button variant="outline" class="bg-white p-2 border rounded-md hidden md:block">
-                    <CirclePlus class="text-muted-foreground text-sm w-4 h-4" />
+                    <CirclePlus class="text-muted-foreground text-sm w-5 h-5" />
                   </button>
                 </DialogTrigger>
               </Dialog>
@@ -190,7 +190,7 @@ const name = user.value.user_metadata.name
               <Dialog>
                 <DialogTrigger as-child>
                   <button variant="outline" class="bg-white p-2 border rounded-md">
-                    <Bell class="text-muted-foreground text-sm w-4 h-4" />
+                    <Bell class="text-muted-foreground text-sm w-5 h-5" />
                   </button>
                 </DialogTrigger>
               </Dialog>
@@ -201,7 +201,7 @@ const name = user.value.user_metadata.name
               <Sheet class="">
                 <SheetTrigger as-child>
                   <Button variant="none"  class="bg-clear hover:bg-clear flex gap-1 p-0">
-                    <img :src="userAvatar" alt="" srcset="" class="h-8 w-8 md:h-10 md:w-10 rounded-full border border-green-200 ">
+                    <img :src="userAvatar" alt="" srcset="" class="h-10 w-10 md:h-10 md:w-10 rounded-full border border-green-200 ">
                   </Button>
                 </SheetTrigger>
                 <SheetContent class="w-[320px] md:w-[38%] flex flex-col gap-4 rounded-l-xl">
@@ -283,7 +283,7 @@ const name = user.value.user_metadata.name
         <!-- heere -->
         <div default-value="overview" class="w-full flex justify-center items-end" orientation="vertical">
           
-          <div class="w-full flex h-[70%] gap-2 justify-center sm:justify-normal sm:gap-2 ">
+          <div class="w-full flex h-[70%] justify-between sm:justify-normal sm:gap-2 ">
 
             <section value="overview" class="bg-transparent border-b flex items-center gap-1 py-1 sm:p-3 text-primary">
                 <!-- <NuxtLink
