@@ -1,5 +1,5 @@
 <template>
-        <div class="w-full" >
+        <div class="w-full 2xl:px-[20%]" >
             <UserProfile />
         </div>
 </template>

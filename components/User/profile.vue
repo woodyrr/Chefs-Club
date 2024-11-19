@@ -2,7 +2,7 @@
     <section class="flex flex-col md:flex-row gap-4 md:gap-6 w-full pt-6 px-[3%] lg:px-[6%] justify-between ">
 
         <div class="w-full md:w-1/2 lg:w-1/3 flex flex-col gap-3 md:gap-5">
-            <div class="flex justify-start md:flex-col gap-3 lg:gap-5 items-center w-5/6 ">
+            <div class="flex justify-start md:flex-col gap-3 lg:gap-5 items-center w-5/6 md:w-full">
                         <div class="">
                             <img :src="userAvatar" alt="" srcset="" class=" rounded-full border border-green-200">
                         </div>
@@ -20,7 +20,7 @@
                 User description
             </div>
 
-            <button class="bg-gray-300 text-black text-center p-1 md:p-2 rounded-lg text-lg w-full">Edit profile</button>
+            <button class="bg-gray-100 text-black text-center p-1 rounded-lg text-lg w-full border border-gray-200">Edit profile</button>
             <div>
                 <div>user email</div>
                 <div>user user website/portfoilio</div>
