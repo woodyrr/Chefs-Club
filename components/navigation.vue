@@ -16,8 +16,9 @@ const logout = async () => {
   navigateTo('/')
 }
 
-
-const userName = user.value.user_metadata.user_name
+const userName = computed(() => user.value?.user_metadata?.user_name); 
+const username = userName.value;
+// const userName = user.value.user_metadata.user_name
 const userAvatar = user.value.user_metadata.avatar_url
 const name = user.value.user_metadata.name
 // const user = useSupabaseUser()
@@ -63,46 +64,38 @@ const name = user.value.user_metadata.name
                   </div>
                   
                   <NuxtLink
-                  to="/history"
-                  class="duration-150 hover:bg-gray-200 flex items-center gap-2 rounded-lg p-2 text-lg text-muted-foreground transition-all hover:text-primary"
-                >
-                  <Home class="h-5 w-5 md:h-5 md:w-5" />
-                 Home
-                </NuxtLink>
-                <a
-                  href="#"
-                  class="duration-150 hover:bg-gray-200 flex items-center gap-2 rounded-lg p-2 text-lg text-muted-foreground transition-all hover:text-primary"
-                >
-                <Disc class="h-5 w-5 md:h-5 md:w-5" />
-                  
-                Suggestions
-                </a>
-                  <a
-                    href="#"
-                    class="duration-150 hover:bg-gray-200 flex items-center gap-2 rounded-lg p-2 text-lg text-muted-foreground transition-all hover:text-primary"
-                  >
-                  <BookOpenText class="h-5 w-5 md:h-5 md:w-5" />
-                  
-                    Menus
-                  </a>
-                  <a
-                  href="#"
+                  to="/"
                   class="duration-150 hover:bg-gray-200 flex items-center gap-2 rounded-lg p-2 text-lg text-muted-foreground transition-all hover:text-primary"
                   >
+                    <Home class="h-5 w-5 md:h-5 md:w-5" />
+                  Home
+                  </NuxtLink>
+                  
+                  <NuxtLink to="explore" class="duration-150 hover:bg-gray-200 flex items-center gap-2 rounded-lg p-2 text-lg text-muted-foreground transition-all hover:text-primary">
+                    <Disc class="h-5 w-5 md:h-5 md:w-5" />
+                    
+                    Suggestions
+                  </NuxtLink>
+
+                  <NuxtLink to="/menu" class="duration-150 hover:bg-gray-200 flex items-center gap-2 rounded-lg p-2 text-lg text-muted-foreground transition-all hover:text-primary">
+                    <BookOpenText class="h-5 w-5 md:h-5 md:w-5" />
+                  
+                    Menu
+                  </NuxtLink>
+                  
+                  <NuxtLink to="/discussions" class="duration-150 hover:bg-gray-200 flex items-center gap-2 rounded-lg p-2 text-lg text-muted-foreground transition-all hover:text-primary">
                     <MessagesSquare class="h-5 w-5 md:h-5 md:w-5" />
                     Discussions
-                  </a>
+                  </NuxtLink>
 
                   <div class="border">
 
                   </div>
-                  <a
-                  href="#"
-                  class="duration-150 hover:bg-gray-200 flex items-center gap-2 rounded-lg p-2 text-lg text-muted-foreground transition-all hover:text-primary"
-                  >
+                  
+                  <NuxtLink to="/explore" class="duration-150 hover:bg-gray-200 flex items-center gap-2 rounded-lg p-2 text-lg text-muted-foreground transition-all hover:text-primary">
                     <PackageSearch class="h-5 w-5 md:h-5 md:w-5" />
                     Explore
-                  </a>
+                  </NuxtLink>
 
                   <!-- <FindLocalChef />
                   <PresetShare /> -->
@@ -116,7 +109,7 @@ const name = user.value.user_metadata.name
                 <PresetShare class="mt-auto w-full" />
               </SheetContent>
             </Sheet>
-            <NuxtLink to="/home" class="flex items-center gap-1">
+            <NuxtLink :to="`/${userName}`" class="flex items-center gap-1">
               <ChefHat class="h-8 w-8 xl:h-10 xl:w-10  bg-black p-1 rounded-full text-white" />
               <div class="text-gray-800 font-bold text-sm">{{ userName }}</div>
             </NuxtLink>
@@ -290,7 +283,7 @@ const name = user.value.user_metadata.name
                   to="/history"
                   class=""
                 > -->
-                <NuxtLink to="/home" class="duration-150 hover:bg-gray-200 p-[6px] sm:py-1  sm:p-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
+                <NuxtLink to="/" class="duration-150 hover:bg-gray-200 p-[6px] sm:py-1  sm:p-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
                   <PanelsTopLeft class="h-3 w-3 sm:w-5 sm:h-5 text-gray-700"  />
                   Overview
                 </NuxtLink>
@@ -310,17 +303,26 @@ const name = user.value.user_metadata.name
               
             </section>
 
-            <section value="discover" class="bg-transparent border-b flex items-center gap-1 py-1 sm:p-3  text-primary">
+            <!-- <section value="discover" class="bg-transparent border-b flex items-center gap-1 py-1 sm:p-3  text-primary">
               <NuxtLink to="/discover" class="duration-150 hover:bg-gray-200 p-[6px] sm:py-1  sm:px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
                 <PackageSearch class="h-3 w-3 sm:w-5 sm:h-5 text-gray-700" />
                 Discover
               </NuxtLink>
                 
               
+            </section> -->
+            <section value="Menu" class="bg-transparent border-b flex items-center gap-1 py-1 sm:p-3  text-primary">
+              <NuxtLink to="/menu" class="duration-150 hover:bg-gray-200 p-[6px] sm:py-1  sm:px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
+                
+                <BookOpenText class="h-3 w-3 sm:w-5 sm:h-5 text-gray-700" />
+                Menu
+              </NuxtLink>
+                
+              
             </section>
 
             <section value="stars" class="bg-transparent border-b flex items-center gap-1 py-1 sm:p-3   text-primary">
-              <NuxtLink to="/login" class="duration-150 hover:bg-gray-200 p-[6px] sm:py-1  sm:px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
+              <NuxtLink to="/stars" class="duration-150 hover:bg-gray-200 p-[6px] sm:py-1  sm:px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
                 
                 <Star class="h-3 w-3 sm:w-5 sm:h-5 text-gray-700" />
                   
