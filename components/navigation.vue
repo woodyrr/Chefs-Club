@@ -283,7 +283,7 @@ const name = user.value.user_metadata.name
                   to="/history"
                   class=""
                 > -->
-                <NuxtLink to="/" class="duration-150 hover:bg-gray-200 p-[6px] sm:py-1  sm:p-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
+                <NuxtLink :to="`/${userName}`" class="duration-150 hover:bg-gray-200 p-[6px] sm:py-1  sm:p-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
                   <PanelsTopLeft class="h-3 w-3 sm:w-5 sm:h-5 text-gray-700"  />
                   Overview
                 </NuxtLink>
@@ -293,7 +293,7 @@ const name = user.value.user_metadata.name
             
 
             <section value="recipes" class="bg-transparent border-b flex items-center gap-1 py-1 sm:p-3  text-primary">
-              <NuxtLink to="/bro" class="duration-150 hover:bg-gray-200 p-[6px] sm:py-1  sm:px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
+              <NuxtLink to="/recipes" class="duration-150 hover:bg-gray-200 p-[6px] sm:py-1  sm:px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
                 
                 <CookingPot class="h-3 w-3 sm:w-5 sm:h-5 text-gray-700"  />
                 
