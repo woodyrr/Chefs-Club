@@ -1,5 +1,7 @@
 <script setup>
 import { Button } from '@/components/ui/button'
+import { ref, onMounted } from 'vue';
+
 import {
   Dialog,
   DialogContent,
@@ -8,15 +10,24 @@ import {
 import { useFetch } from '#app'
 import { ChefHat, Clock, LoaderCircle, Youtube } from 'lucide-vue-next';
 
-const { data: meals } = await useFetch(`${useRuntimeConfig().public.baseUrl}/api/userMeals`)
-let showmore = ref(false)
-// Handling the data output
-// console.log(meals.value)
+// const { data: meals } = await useFetch(`${useRuntimeConfig().public.baseUrl}/api/userMeals`)
+// let showmore = ref(false)
+// console.log(meals)
+const meals = ref([]); // Initialize meals as an empty array
+const showmore = ref(false); // Toggle for showing more description
+
+const { data } = await useFetch(`${useRuntimeConfig().public.baseUrl}/api/userMeals`, {
+      headers: useRequestHeaders(['cookie'])
+    });
+meals.value = data.value || []; 
 </script>
 
 <template>
   <section class="p-[3%] md:pt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-8 text-[16px] text-[#E5E7EB] font-medium sm:p-[1%]">
     <!-- Looping through each meal -->
+    <div v-if="meals.length === 0" class="flex items-center justify-center w-full  text-lg">
+      <LoaderCircle class="animate-spin" /> Loading meals...
+    </div>
     <Dialog v-for="(mealEntry, index) in meals" :key="index">
       <DialogTrigger as-child class="border group">
         <Button
@@ -162,3 +173,6 @@ let showmore = ref(false)
     </Dialog>
   </section>
 </template>
+
+
+

@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
-import {Home, Menu, Search, Star,  DollarSign, HistoryIcon, PanelsTopLeft, User, SmilePlus, Heart, LogOut, Settings, BadgeHelp, Bell, ChefHat, CookingPot, CirclePlus, PackageSearch, Disc, BookOpenText, MessagesSquare } from 'lucide-vue-next';
+import {Home, Menu, Search, Star,  DollarSign, HistoryIcon, PanelsTopLeft, User, SmilePlus, Heart, LogOut, Settings, BadgeHelp, Bell, ChefHat, CookingPot, CirclePlus, PackageSearch, Disc, BookOpenText, MessagesSquare, ShoppingBasket } from 'lucide-vue-next';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -311,11 +311,20 @@ const name = user.value.user_metadata.name
                 
               
             </section> -->
-            <section value="Menu" class="bg-transparent border-b flex items-center gap-1 py-1 sm:p-3  text-primary">
-              <NuxtLink to="/menu" class="duration-150 hover:bg-gray-200 p-[6px] sm:py-1  sm:px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
+            <section value="Projects" class="bg-transparent border-b flex items-center gap-1 py-1 sm:p-3  text-primary">
+              <NuxtLink to="/projects" class="duration-150 hover:bg-gray-200 p-[6px] sm:py-1  sm:px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
                 
                 <BookOpenText class="h-3 w-3 sm:w-5 sm:h-5 text-gray-700" />
-                Menu
+                projects
+              </NuxtLink>
+                
+              
+            </section>
+
+            <section value="Ingredients" class="bg-transparent border-b flex items-center gap-1 py-1 sm:p-3  text-primary">
+              <NuxtLink to="/ingredients" class="duration-150 hover:bg-gray-200 p-[6px] sm:py-1  sm:px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
+                <ShoppingBasket class="h-3 w-3 sm:w-5 sm:h-5 text-gray-700" />
+                ingredients
               </NuxtLink>
                 
               

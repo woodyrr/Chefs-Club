@@ -150,12 +150,12 @@ const { data: meals } = await useFetch('/api/userMeals')
                 <ChefHat /> {{ item.chef }} 
               </div>
 
-              <div 
+              <!-- <div 
                 
                 class="flex gap-1 items-center justify-center"
               >
                 <Clock :style="{ color: item.time.max <= 30 ? '#28a745' : item.time.max <= 45 ? '#ffc107' : '#dc3545' }"  /> {{ item.time.min }} - {{ item.time.max }} mins
-              </div>
+              </div> -->
 
               <!-- Difficulty section with dynamic color styling -->
               <div 
