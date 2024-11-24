@@ -1,12 +1,14 @@
 <template>
-    <section class="flex flex-col md:flex-row gap-4 md:gap-6 w-full pt-6 px-[3%] 2xl:px-[6%] justify-between ">
+    
+    <div class=" flex justify-center items-center">
+        <section class="flex flex-col md:flex-row gap-4 md:gap-6 w-full pt-6 px-[3%] lg:px-[4%]  max-w-[1400px] justify-between ">
 
-        <UserUserinfo />
-        <div class="border md:hidden"></div>
+            <UserUserinfo />
+            <div class="border md:hidden"></div>
         <!-- <options /> -->
 
         <!-- //user personal public/private meals -->
-         <div class="w-full">
+        <div class="w-full">
             <div class="flex flex-col gap-2 w-full border border-gray-200 rounded-lg p-3">
                 <div class="flex justify-between text">
                     <h1 class="flex gap-1" >
@@ -31,8 +33,9 @@
                 
             </div>
          </div>
-        
-    </section>
+
+        </section>
+    </div>
 
 </template>
 

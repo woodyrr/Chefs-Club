@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
-import {Home, Menu, Search, Star,  DollarSign, HistoryIcon, PanelsTopLeft, User, SmilePlus, Heart, LogOut, Settings, BadgeHelp, Bell, ChefHat, CookingPot, CirclePlus, PackageSearch, Disc, BookOpenText, MessagesSquare, ShoppingBasket } from 'lucide-vue-next';
+import {Home, Menu, Search, Star,  DollarSign, HistoryIcon, PanelsTopLeft, User, SmilePlus, Heart, LogOut, Settings, BadgeHelp, Bell, ChefHat, CookingPot, CirclePlus, PackageSearch, Disc, BookOpenText, MessagesSquare, ShoppingBasket, StarIcon, Stars } from 'lucide-vue-next';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -333,7 +333,7 @@ const name = user.value.user_metadata.name
             <section value="stars" class="bg-transparent border-b flex items-center gap-1 py-1 sm:p-3   text-primary">
               <NuxtLink to="/stars" class="duration-150 hover:bg-gray-200 p-[6px] sm:py-1  sm:px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
                 
-                <Star class="h-3 w-3 sm:w-5 sm:h-5 text-gray-700" />
+                <Stars class="h-3 w-3 sm:w-5 sm:h-5 text-gray-700" />
                   
                   Stars
               </NuxtLink>

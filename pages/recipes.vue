@@ -1,17 +1,21 @@
 <template>
-    <section class="flex flex-col md:flex-row gap-4 md:gap-6 w-full pt-6 px-[3%] 2xl:px-[6%] justify-between ">
+    
 
-        <UserUserinfo />
-        <div class="border md:hidden"></div>
+    <div class=" flex justify-center items-center">
+        <section class="flex flex-col md:flex-row gap-4 md:gap-6 w-full pt-6 px-[3%] lg:px-[4%]  max-w-[1400px] justify-between ">
+
+            <UserUserinfo />
+            <div class="border md:hidden"></div>
         <!-- <options /> -->
 
         <!-- //user personal public/private meals -->
-         <div class="w-full">
+        <div class="w-full">
            <h1>repositories ect..</h1> 
-        <PublicMeals />
+            <Repositories class=""/>
          </div>
-        
-    </section>
+
+        </section>
+    </div>
 
 </template>
 

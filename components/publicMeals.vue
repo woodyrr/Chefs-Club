@@ -8,7 +8,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { useFetch } from '#app'
-import { ChefHat, Clock, LoaderCircle, Youtube } from 'lucide-vue-next';
+import { ChefHat, Clock, LoaderCircle, Star, Stars, Youtube } from 'lucide-vue-next';
 
 // const { data: meals } = await useFetch(`${useRuntimeConfig().public.baseUrl}/api/userMeals`)
 // let showmore = ref(false)
@@ -23,7 +23,7 @@ meals.value = data.value || [];
 </script>
 
 <template>
-  <section class="p-[3%] md:pt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-8 text-[16px] text-[#E5E7EB] font-medium sm:p-[1%]">
+  <section class="p-[3%]  border grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-8 text-[16px] text-[#E5E7EB] font-medium sm:p-1 border-b-1 border-x-0">
     <!-- Looping through each meal -->
     <div v-if="meals.length === 0" class="flex items-center justify-center w-full  text-lg">
       <LoaderCircle class="animate-spin" /> Loading meals...
@@ -171,6 +171,15 @@ meals.value = data.value || [];
         </div>
       </DialogContent>
     </Dialog>
+    <div>
+      <button class="flex bg-[#acacac44]  gap-2 px-5 py-1 rounded-lg rounded-r-none border border-r-1 border-y-0 border-l-0 border-gray-400">
+        <Stars class="text-gray-500" />
+        <div class="text-gray-600">Star</div>
+      </button>
+      <button>
+        <>
+      </button>
+    </div>
   </section>
 </template>
 
