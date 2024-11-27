@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
-import {Home, Menu, Search, Star,  DollarSign, HistoryIcon, PanelsTopLeft, User, SmilePlus, Heart, LogOut, Settings, BadgeHelp, Bell, ChefHat, CookingPot, CirclePlus, PackageSearch, Disc, BookOpenText, MessagesSquare, ShoppingBasket, StarIcon, Stars } from 'lucide-vue-next';
+import {Home, Menu, Search, Star,  DollarSign, HistoryIcon, PanelsTopLeft, User, SmilePlus, Heart, LogOut, Settings, BadgeHelp, Bell, ChefHat, CookingPot, CirclePlus, PackageSearch, Disc, BookOpenText, MessagesSquare, ShoppingBasket, StarIcon, Stars, CircleEllipsis, Ellipsis } from 'lucide-vue-next';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -8,6 +8,9 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import createProfile from './User/createProfile/createProfile.vue';
 import Dialog from './ui/dialog/Dialog.vue';
 import DialogTrigger from './ui/dialog/DialogTrigger.vue';
+import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu';
+
+
 
 const client = useSupabaseClient()
 const user = useSupabaseUser()
@@ -276,15 +279,15 @@ const name = user.value.user_metadata.name
         <!-- heere -->
         <div default-value="overview" class="w-full flex justify-center items-end" orientation="vertical">
           
-          <div class="w-full flex h-[70%] justify-between sm:justify-normal sm:gap-2 ">
+          <div class="w-full flex h-[70%] justify-around sm:justify-normal sm:gap-2 ">
 
-            <section value="overview" class="bg-transparent border-b flex items-center gap-1 py-1 sm:p-3 text-primary">
+            <section value="overview" class="bg-transparent border-b flex items-center gap-1 py-1 sm:p-3 ">
                 <!-- <NuxtLink
                   to="/history"
                   class=""
                 > -->
                 <NuxtLink :to="`/${userName}`" class="duration-150 hover:bg-gray-200 p-[6px] sm:py-1  sm:p-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
-                  <PanelsTopLeft class="h-3 w-3 sm:w-5 sm:h-5 text-gray-700"  />
+                  <PanelsTopLeft class="h-4 w-4 sm:w-5 sm:h-5 text-gray-700"  />
                   Overview
                 </NuxtLink>
                   
@@ -295,7 +298,7 @@ const name = user.value.user_metadata.name
             <section value="recipes" class="bg-transparent border-b flex items-center gap-1 py-1 sm:p-3  text-primary">
               <NuxtLink to="/recipes" class="duration-150 hover:bg-gray-200 p-[6px] sm:py-1  sm:px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
                 
-                <CookingPot class="h-3 w-3 sm:w-5 sm:h-5 text-gray-700"  />
+                <CookingPot class="h-4 w-4 sm:w-5 sm:h-5 text-gray-700"  />
                 
                 Recipes
               </NuxtLink>
@@ -314,33 +317,65 @@ const name = user.value.user_metadata.name
             <section value="Projects" class="bg-transparent border-b flex items-center gap-1 py-1 sm:p-3  text-primary">
               <NuxtLink to="/projects" class="duration-150 hover:bg-gray-200 p-[6px] sm:py-1  sm:px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
                 
-                <BookOpenText class="h-3 w-3 sm:w-5 sm:h-5 text-gray-700" />
+                <BookOpenText class="h-4 w-4 sm:w-5 sm:h-5 text-gray-700" />
                 projects
               </NuxtLink>
                 
               
             </section>
 
-            <section value="Ingredients" class="bg-transparent border-b flex items-center gap-1 py-1 sm:p-3  text-primary">
+            <section value="Ingredients" class="bg-transparent border-b sm:flex items-center gap-1 hidden py-1 sm:p-3  text-primary">
               <NuxtLink to="/ingredients" class="duration-150 hover:bg-gray-200 p-[6px] sm:py-1  sm:px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
-                <ShoppingBasket class="h-3 w-3 sm:w-5 sm:h-5 text-gray-700" />
+                <ShoppingBasket class="h-4 w-4 sm:w-5 sm:h-5 text-gray-700" />
                 ingredients
               </NuxtLink>
                 
               
             </section>
 
-            <section value="stars" class="bg-transparent border-b flex items-center gap-1 py-1 sm:p-3   text-primary">
+            <section value="stars" class="bg-transparent border-b md:flex items-center gap-1 py-1 sm:p-3 hidden   text-primary">
               <NuxtLink to="/stars" class="duration-150 hover:bg-gray-200 p-[6px] sm:py-1  sm:px-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
                 
-                <Stars class="h-3 w-3 sm:w-5 sm:h-5 text-gray-700" />
+                <Stars class="h-4 w-4 sm:w-5 sm:h-5 text-gray-700" />
                   
                   Stars
               </NuxtLink>
                 
               
             </section>
-            
+
+
+            <section class="bg-transparent border-b flex items-center gap-1 py-1 sm:p-3 md:hidden  text-primary ">
+              <DropdownMenu>
+                <DropdownMenuTrigger as-child  class="border">
+                  <button  variant="outline" class="duration-150 border px-3 p-1 rounded hover:bg-gray-300">
+                    <Ellipsis class="h-3 w-3 sm:w-5 sm:h-5 text-gray-700" />
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent class="w-56">
+                  
+                  <DropdownMenuItem
+                    class="w-full"
+                  >
+                  <NuxtLink to="/stars" class="duration-150  hover:bg-gray-100  w-full flex items-center gap-1 rounded-xl  transition-all text-primary">
+                    <Stars class="h-4 w-4 sm:w-5 sm:h-5 text-gray-700" />
+                      
+                      Stars
+                  </NuxtLink>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    class="w-full"
+                    
+                  >
+                  <NuxtLink to="/ingredients" class="duration-150 hover:bg-gray-100 w-full flex items-center gap-1 rounded-xl sm:hidden  transition-all text-primary">
+                    <ShoppingBasket class="h-4 w-4 sm:w-5 sm:h-5 text-gray-700" />
+                    ingredients
+                  </NuxtLink>
+                  </DropdownMenuItem>
+                  
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </section>
 
           </div>
         </div>

@@ -10,7 +10,6 @@
 
         <!-- //user personal public/private meals -->
         <div class="w-full">
-           <h1>repositories ect..</h1> 
             <Repositories class=""/>
          </div>
 
