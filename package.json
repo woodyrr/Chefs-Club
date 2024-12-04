@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "@nuxtjs/supabase": "^1.4.0",
-    "@nuxtjs/tailwindcss": "^6.12.1"
+    "@nuxtjs/tailwindcss": "^6.12.1",
+    "nuxt-resend": "^0.0.2"
   }
 }

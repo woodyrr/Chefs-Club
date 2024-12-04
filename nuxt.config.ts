@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "shadcn-nuxt",
     "@nuxtjs/supabase",
     '@nuxt/image',
+    'nuxt-resend'
   ],
   // nitro: {
   //   preset: 'node-server', // Or adjust for your deployment target
