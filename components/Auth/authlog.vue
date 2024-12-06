@@ -28,7 +28,7 @@ const handleLogin = async () => {
 
 <template>
     <!-- <div class="bg-[#101010] w-full h-full py-[10%] text-white"> -->
-        <form class=" flex justify-center items-center text-center border p-10" @submit.prevent="handleLogin">
+        <!-- <form class=" flex justify-center items-center text-center border p-10" @submit.prevent="handleLogin">
             <div class="">
                 <h1 class="">Supabase + Nuxt 3</h1>
                 <p class="">Sign in via magic link with your email below</p>
@@ -44,7 +44,7 @@ const handleLogin = async () => {
                     />
                 </div>
             </div>
-        </form>
+        </form> -->
 
 
 
