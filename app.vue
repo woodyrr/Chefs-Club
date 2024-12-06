@@ -6,6 +6,7 @@
     <div class="w-full h-full "  v-else>
       <AuthAuthlog />
     </div>
+    
   </div>
 </template>
 <script setup>

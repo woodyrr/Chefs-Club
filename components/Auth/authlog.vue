@@ -1,12 +1,14 @@
 <script setup>
+import { ExternalLink } from 'lucide-vue-next';
+
 const supabase = useSupabaseClient()
 const user = useSupabaseUser()
 const redirectTo = `${useRuntimeConfig().public.baseUrl}/confirm`
-watchEffect(() => {
-  if (user.value) {
-    navigateTo('/confirm')
-  }
-})
+// watchEffect(() => {
+//   if (user.value) {
+//     navigateTo('/confirm')
+//   }
+// })
 
 const loading = ref(false)
 const email = ref('')
@@ -14,10 +16,11 @@ const email = ref('')
 const handleLogin = async () => {
   try {
     loading.value = true
-    const { error } = await supabase.auth.signInWithOtp({ email: email.value })
+    const { error } = await supabase.auth.signInWithOtp({ email: email.value, options:{emailRedirectTo:redirectTo} })
+    
     if (error) throw error
-    alert('Check your email for the login link!')
-    redirectTo
+    
+    
   } catch (error) {
     alert(error.error_description || error.message)
   } finally {

@@ -5,7 +5,7 @@ const user = useSupabaseUser()
 import { Skeleton } from '@/components/ui/skeleton'
 
 
-const userName = computed(() => user.value?.user_metadata?.user_name); // Safely access the user's name
+// const userName = computed(() => user.value?.user_metadata?.user_name); // Safely access the user's name
 watch(user, () => {
   // if (user.value) {
   //   const username = userName.value; // Get the username dynamically
@@ -18,7 +18,7 @@ watch(user, () => {
   
   if (user.value) {
     console.log(user.value)
-    navigateTo(`/`)
+    navigateTo(`/recipes`)
     
   }
 }, { immediate: true })
