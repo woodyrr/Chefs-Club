@@ -1,12 +1,9 @@
 <template>
   <div>
-    <div >
-
-    </div>
     <navigation v-if="user" class="w-full">
           <NuxtPage />
     </navigation>
-    <div v-else>
+    <div class="container" style="padding: 50px 0 100px 0" v-else>
       <AuthAuthlog />
     </div>
   </div>

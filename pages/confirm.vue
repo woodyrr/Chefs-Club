@@ -3,12 +3,16 @@ const user = useSupabaseUser()
 // const supabase = useSupabaseUser
 // supabase.auth.getUser()
 import { Skeleton } from '@/components/ui/skeleton'
+
+
 const userName = computed(() => user.value?.user_metadata?.user_name); // Safely access the user's name
 watch(user, () => {
   if (user.value) {
     const username = userName.value; // Get the username dynamically
     if (username) {
       navigateTo(`/${username}`); // Correct concatenation and navigation
+    }else{
+      navigateTo(`/`)
     }
   }
 }, { immediate: true })
