@@ -1,5 +1,12 @@
 <script setup>
 const supabase = useSupabaseClient()
+const user = useSupabaseUser()
+const redirectTo = `${useRuntimeConfig().public.baseUrl}/confirm`
+watchEffect(() => {
+  if (user.value) {
+    navigateTo('/confirm')
+  }
+})
 
 const loading = ref(false)
 const email = ref('')
@@ -10,6 +17,7 @@ const handleLogin = async () => {
     const { error } = await supabase.auth.signInWithOtp({ email: email.value })
     if (error) throw error
     alert('Check your email for the login link!')
+    redirectTo
   } catch (error) {
     alert(error.error_description || error.message)
   } finally {
