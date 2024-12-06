@@ -13,7 +13,7 @@ export default defineNuxtConfig({
     // '@vee-validate/nuxt',
 
   ],
-  css: ['@/assets/main.css'],
+
   // nitro: {
   //   preset: 'node-server', // Or adjust for your deployment target
   // },

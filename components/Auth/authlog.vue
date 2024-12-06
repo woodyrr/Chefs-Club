@@ -19,7 +19,7 @@ const handleLogin = async () => {
     const { error } = await supabase.auth.signInWithOtp({ email: email.value, options:{emailRedirectTo:redirectTo} })
     
     if (error) throw error
-    
+    alert("check your email for special link")
     
   } catch (error) {
     alert(error.error_description || error.message)
