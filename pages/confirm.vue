@@ -3,6 +3,8 @@ const user = useSupabaseUser()
 // const supabase = useSupabaseUser
 // supabase.auth.getUser()
 import { Skeleton } from '@/components/ui/skeleton'
+import { navigateTo } from 'nuxt/app';
+import { watch } from 'vue';
 
 
 // const userName = computed(() => user.value?.user_metadata?.user_name); // Safely access the user's name
@@ -18,7 +20,7 @@ watch(user, () => {
   
   if (user.value) {
     console.log(user.value)
-    navigateTo(`/recipes`)
+    navigateTo(`/account`)
     
   }
 }, { immediate: true })

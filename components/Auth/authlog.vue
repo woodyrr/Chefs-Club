@@ -66,14 +66,14 @@ const handleLogin = async () => {
                     <div class="grid gap-4">
                         
                         <form class="" @submit.prevent="handleLogin">
-                            <div class="flex flex-col gap-3">
-                                <div class="border border-[#363636] border-1 rounded-lg">
-                                    <input class="" type="email" placeholder="Your email" v-model="email" />
+                            <div class="flex flex-col gap-3 border border-green-950 rounded-sm pt-1 px-1">
+                                <div class="border border-[#363636] border-1 rounded-lg ">
+                                    <input class="w-full p-2 text-black border " type="email" placeholder="Your email" v-model="email" />
                                 </div>
-                                <div class="border border-[#363636] rounded-md">
+                                <div class="border border-[#363636] w-full flex rounded-t-sm justify-center">
                                     <input
                                     type="submit"
-                                    class="button block duration-300 rounded-lg  hover:bg-[#363636]"
+                                    class="button block duration-300 w-full  hover:bg-[#aac986] p-2 cursor-pointer rounded-t-sm"
                                     :value="loading ? 'Loading' : 'Send magic link'"
                                     :disabled="loading"
                                     />

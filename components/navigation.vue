@@ -14,6 +14,7 @@ import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMe
 
 const client = useSupabaseClient()
 const user = useSupabaseUser()
+const avatar_path = ref(`https://robohash.org/${user.email}.png`)
 const logout = async () => {
   await client.auth.signOut()
   navigateTo('/')
@@ -197,14 +198,14 @@ const name = user.value.user_metadata.name
               <Sheet class="">
                 <SheetTrigger as-child>
                   <Button variant="none"  class="bg-clear hover:bg-clear flex gap-1 p-0">
-                    <img :src="userAvatar" alt="" srcset="" class="h-10 w-10 md:h-10 md:w-10 rounded-full border border-green-200 ">
+                    <img :src="avatar_path" alt="" srcset="" class="h-10 w-10 md:h-10 md:w-10 rounded-full border border-green-200 ">
                   </Button>
                 </SheetTrigger>
                 <SheetContent class="w-[320px] md:w-[38%] flex flex-col gap-4 rounded-l-xl">
                   <SheetHeader>
                     <SheetTitle class="flex gap-1 items-center">
                       
-                      <img :src="userAvatar" alt="" srcset="" class="h-8 w-8 md:h-10 md:w-10 rounded-full border border-green-200">
+                      <img :src="avatar_path" alt="" srcset="" class="h-8 w-8 md:h-10 md:w-10 rounded-full border border-green-200">
                       <div class="flex flex-col text-gray-600 text-left">
                         <div class="text-gray-800 text-sm">{{ userName }}</div>
                         <div class="text-sm text-gray-500">{{ name }}</div>
@@ -219,7 +220,7 @@ const name = user.value.user_metadata.name
                     </SheetDescription>
                   </SheetHeader>
                   <div class="text-gray-700 text-[14px] flex flex-col gap-2">
-
+                    
                     <button class="flex gap-2 items-center w-full bg-transparent text-left duration-150 hover:bg-gray-100 py-2 px-1 rounded-lg">
                       <User class="w-4 h-4" />
                       Your profile
@@ -286,7 +287,7 @@ const name = user.value.user_metadata.name
                   to="/history"
                   class=""
                 > -->
-                <NuxtLink :to="`/${userName}`" class="duration-150 hover:bg-gray-200 p-[6px] sm:py-1  sm:p-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
+                <NuxtLink :to="`/account`" class="duration-150 hover:bg-gray-200 p-[6px] sm:py-1  sm:p-3 flex items-center gap-1 rounded-xl  transition-all text-primary">
                   <PanelsTopLeft class="h-4 w-4 sm:w-5 sm:h-5 text-gray-700"  />
                   Overview
                 </NuxtLink>
